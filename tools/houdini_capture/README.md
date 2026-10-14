@@ -115,3 +115,24 @@ Those captures are not approved visual baselines. Native PrintWindow and Qt
 screen capture returned blank content on the inactive desktop. QWidget capture
 remains the implemented backend. Next work is capture fidelity for parameter
 controls, followed by wider UI coverage and the egui/wgpu integration build.
+
+## All shelf views
+
+Run `scenarios/shelves.json` at 2560x1440 with a 600-second timeout.
+The worker inventories every loaded shelf, including empty shelves, and expands
+its queue dynamically. It displays original tools in original order in temporary
+full-width shelves, with at most 12 tools per page. It does not execute tools.
+Definitions are written only inside the capture run's directory.
+The 180-pixel captures include the menu, shelf, and upper pane border.
+This scenario requires the stated size to keep labels visible.
+
+After completion, run:
+
+```powershell
+python tools/houdini_capture/shelf_gallery.py .captures/shelves-001
+```
+
+Open `index.html` in the run directory to filter shelves and tool labels.
+`shelves.json` records shelf labels, tool names, labels, icons, and page membership.
+`coverage.json` records counts after checking image hashes and exact tool order.
+These checks establish captured page coverage, not tool behavior or pixel fidelity.

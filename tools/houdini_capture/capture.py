@@ -31,7 +31,8 @@ def read_scenario(path):
     if not isinstance(data, dict) or not isinstance(data.get('steps'), list):
         raise ValueError('Scenario requires a steps array')
     allowed = {'inspect', 'desktop', 'pane', 'create_node', 'select_node',
-               'set_parameters', 'capture', 'load_project', 'export_parameters'}
+               'set_parameters', 'capture', 'load_project', 'export_parameters',
+               'capture_shelves', 'show_shelf'}
     for step in data['steps']:
         if not isinstance(step, dict) or step.get('action') not in allowed:
             raise ValueError(f'Unknown scenario action: {step}')

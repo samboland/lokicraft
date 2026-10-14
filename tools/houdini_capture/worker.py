@@ -89,6 +89,45 @@ def capture(step):
 
 def execute(step):
     action = step['action']
+    if action == 'capture_shelves':
+        shelves = sorted(hou.shelves.shelves().values(), key=lambda s: s.name())
+        data = []
+        expanded = []
+        for index, shelf in enumerate(shelves):
+            tools = list(shelf.tools())
+            pages = [tools[i:i+12] for i in range(0, len(tools), 12)] or [[]]
+            item = {'name': shelf.name(), 'label': shelf.label(), 'pages': [],
+                    'tools': [{'name': t.name(), 'label': t.label(), 'icon': t.icon()} for t in tools]}
+            for page_index, page in enumerate(pages):
+                name = f'shelves/{index:03d}-{shelf.name()}-{page_index+1:02d}.png'
+                item['pages'].append({'file': name, 'tools': [t.name() for t in page]})
+                expanded.extend([
+                    {'action': 'show_shelf', 'label': shelf.label(), 'tools': [t.name() for t in page], 'settle_ms': 700},
+                    {'action': 'capture', 'file': name, 'rect': [0, 0, hou.qt.mainWindow().width(), 180], 'settle_ms': 100}])
+            data.append(item)
+        write_json(output_path('shelves.json'), {'shelves': data, 'page_size': 12,
+            'presentation': 'Original tools in original order, in temporary full-width shelves; no tool scripts invoked.'})
+        STEPS[INDEX+1:INDEX+1] = expanded
+        return {'shelves': len(data), 'pages': len(expanded)//2}
+    if action == 'show_shelf':
+        # All definitions are owned by this run; installed shelf definitions stay untouched.
+        owned = str(ROOT / 'capture-shelves.shelf')
+        shelf = hou.shelves.shelves().get('loki_capture_page')
+        if shelf is None:
+            shelf = hou.shelves.newShelf(file_path=owned, name='loki_capture_page', label=step['label'])
+        shelf.setLabel(step['label'])
+        shelf.setTools([hou.shelves.tools()[name] for name in step['tools']])
+        shelf_set = hou.shelves.shelfSets().get('loki_capture_set')
+        if shelf_set is None:
+            shelf_set = hou.shelves.newShelfSet(file_path=owned, name='loki_capture_set', label='Capture')
+        shelf_set.setShelves([shelf])
+        for current in hou.ui.curDesktop().shelfDock().shelfSets():
+            hou.hscript('shelfdock remove ' + current.name())
+        result, error = hou.hscript('shelfdock -o 1 -l icon_and_text add loki_capture_set')
+        if error:
+            raise RuntimeError(error)
+        hou.ui.triggerUpdate()
+        return {'label': step['label'], 'tools': step['tools']}
     if action == 'inspect':
         data = inventory()
         write_json(output_path(step.get('file','inventory.json')), data)
