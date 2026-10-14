@@ -1,0 +1,19 @@
+{
+  "steps": [
+    {"action":"inspect"},
+    {"action":"capture", "file":"workspace.png"},
+    {"action":"create_node", "parent":"/obj", "type":"geo", "name":"capture_reference"},
+    {"action":"create_node", "parent":"/obj/capture_reference", "type":"box", "name":"box1", "display":true},
+    {"action":"select_node", "path":"/obj/capture_reference/box1"},
+    {"action":"pane", "pane":"NetworkEditor", "path":"/obj/capture_reference"},
+    {"action":"export_parameters", "path":"/obj/capture_reference/box1", "file":"box-parameters.json"},
+    {"action":"pane", "pane":"Parm", "type":"Parm", "path":"/obj/capture_reference/box1", "settle_ms":2000},
+    {"action":"capture", "file":"box-workspace.png"},
+    {"action":"capture", "pane":"Parm", "file":"box-parameters.png"},
+    {"action":"capture", "pane":"NetworkEditor", "file":"box-network.png"},
+    {"action":"pane", "pane":"DetailsView", "path":"/obj/capture_reference/box1"},
+    {"action":"capture", "pane":"DetailsView", "file":"geometry-spreadsheet.png"},
+    {"action":"capture", "pane":"DetailsView", "rect":[0,0,500,200], "file":"geometry-header.png"},
+    {"action":"inspect", "file":"final-inventory.json"}
+  ]
+}
