@@ -1,0 +1,368 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Ui",
+      "dialog": "preferences",
+      "page_name": "Ui",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-View",
+      "dialog": "preferences",
+      "page_name": "View",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Network",
+      "dialog": "preferences",
+      "page_name": "Network",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Parameters",
+      "dialog": "preferences",
+      "page_name": "Parameters",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-TabMenu",
+      "dialog": "preferences",
+      "page_name": "TabMenu",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Desktop",
+      "dialog": "preferences",
+      "page_name": "Desktop",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Anim",
+      "dialog": "preferences",
+      "page_name": "Anim",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Solaris",
+      "dialog": "preferences",
+      "page_name": "Solaris",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Geometry",
+      "dialog": "preferences",
+      "page_name": "Geometry",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Handles",
+      "dialog": "preferences",
+      "page_name": "Handles",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-MotionPathDefaults",
+      "dialog": "preferences",
+      "page_name": "MotionPathDefaults",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-ApexDefaults",
+      "dialog": "preferences",
+      "page_name": "ApexDefaults",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-ApexControls",
+      "dialog": "preferences",
+      "page_name": "ApexControls",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Overlay",
+      "dialog": "preferences",
+      "page_name": "Overlay",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-HudHandles",
+      "dialog": "preferences",
+      "page_name": "HudHandles",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Ocio",
+      "dialog": "preferences",
+      "page_name": "Ocio",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Script",
+      "dialog": "preferences",
+      "page_name": "Script",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Syntax",
+      "dialog": "preferences",
+      "page_name": "Syntax",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Help",
+      "dialog": "preferences",
+      "page_name": "Help",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Input",
+      "dialog": "preferences",
+      "page_name": "Input",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-General",
+      "dialog": "preferences",
+      "page_name": "General",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Warnings",
+      "dialog": "preferences",
+      "page_name": "Warnings",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Chop",
+      "dialog": "preferences",
+      "page_name": "Chop",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "theme-swatches",
+      "dialog": "color-theme",
+      "theme_tab": "swatches",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "theme-sliders",
+      "dialog": "color-theme",
+      "theme_tab": "sliders",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "theme-tweaks",
+      "dialog": "color-theme",
+      "theme_tab": "tweaks",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "help-box",
+      "dialog": "help-tooltip",
+      "help_url": "help:/nodes/sop/box",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "help-sphere",
+      "dialog": "help-tooltip",
+      "help_url": "help:/nodes/sop/sphere",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "help-transform",
+      "dialog": "help-tooltip",
+      "help_url": "help:/nodes/sop/xform",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "help-box-tool",
+      "dialog": "help-tooltip",
+      "help_url": "tool:sop_box",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import time
 import traceback
 
 import hou
-from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets, QtOpenGLWidgets
 
 sys.path.insert(0, os.environ['LOKI_CAPTURE_WORKER_DIR'])
 from artifacts import new_output, capture_outputs
@@ -59,7 +59,20 @@ def capture(step):
     if target and not target.isCurrentTab():
         raise ValueError('Activate the pane with a pane action before capturing it')
     window = target.qtParentWindow() if target else hou.qt.mainWindow()
-    pixmap = window.grab()
+    backend = step.get('backend', 'widget')
+    if backend == 'framebuffer':
+        surfaces = [child for child in window.findChildren(QtOpenGLWidgets.QOpenGLWidget)
+                    if child.isVisible() and child.size() == window.size()
+                    and child.mapTo(window, QtCore.QPoint()) == QtCore.QPoint()]
+        if len(surfaces) != 1:
+            raise RuntimeError(f'Expected one full-window OpenGL surface, found {len(surfaces)}')
+        pixmap = surfaces[0].grabFramebuffer()
+        backend = 'QOpenGLWidget.grabFramebuffer'
+    elif backend == 'widget':
+        pixmap = window.grab()
+        backend = 'QWidget.grab'
+    else:
+        raise ValueError('Unknown capture backend')
     if pixmap.isNull():
         raise RuntimeError('Houdini returned an empty capture')
     region = QtCore.QRect(0, 0, window.width(), window.height())
@@ -82,7 +95,7 @@ def capture(step):
         raise RuntimeError('PNG save failed')
     metadata = {'file':str(path), 'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
                 'logical_rect':rectangle(region), 'pixel_size':[image.width(),image.height()],
-                'device_pixel_ratio':ratio, 'backend':'QWidget.grab', 'state':inventory()}
+                'device_pixel_ratio':ratio, 'backend':backend, 'state':inventory()}
     write_json(sidecar, metadata)
     return metadata
 

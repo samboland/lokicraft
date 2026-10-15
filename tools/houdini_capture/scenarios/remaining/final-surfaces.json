@@ -1,0 +1,148 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "materials",
+      "name": "materials",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "frame_network",
+      "name": "material-bounds",
+      "settle_ms": 1500
+    },
+    {
+      "action": "capture",
+      "pane": "NetworkEditor",
+      "file": "material-complete.png"
+    },
+    {
+      "action": "reference_state",
+      "mode": "bundle",
+      "name": "bundle"
+    },
+    {
+      "action": "floating_pane",
+      "type": "BundleList",
+      "name": "reference_bundles",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-row",
+      "pane": "reference_bundles",
+      "window_point": [
+        140,
+        117
+      ],
+      "button": "right"
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-menu",
+      "pane": "reference_bundles",
+      "window_point": [
+        40,
+        19
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "contents-menu",
+      "pane": "reference_bundles",
+      "window_point": [
+        135,
+        19
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "settings-menu",
+      "pane": "reference_bundles",
+      "window_point": [
+        240,
+        19
+      ],
+      "button": "left"
+    },
+    {
+      "action": "capture",
+      "file": "build-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "Animate",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "Animate-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "Solaris",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "Solaris-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "SolarisLookDev",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "SolarisLookDev-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "TOPs",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "TOPs-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "Technical",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "Technical-framebuffer.png",
+      "backend": "framebuffer"
+    },
+    {
+      "action": "desktop",
+      "name": "TechnicalWide",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "TechnicalWide-framebuffer.png",
+      "backend": "framebuffer"
+    }
+  ]
+}

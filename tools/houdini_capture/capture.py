@@ -40,7 +40,12 @@ def read_scenario(path):
         if not isinstance(delay, int) or not 100 <= delay <= 30000:
             raise ValueError('settle_ms must be between 100 and 30000')
         capture_delay = 1000 + 700*len(step['followups']) if 'followups' in step else (2000 if step.get('method') in ['hover', 'tooltip'] else (1000 if 'hover' in step else 600))
-        capture_delay = max(capture_delay, step.get('capture_after_ms', 0))
+        extra_delay = step.get('capture_after_ms', 0)
+        if not isinstance(extra_delay, int) or not 0 <= extra_delay < 30000:
+            raise ValueError('capture_after_ms must be between 0 and 29999')
+        if 'dialog' in step and step['dialog'] not in {'preferences', 'color-theme', 'help-tooltip'}:
+            raise ValueError('Unknown dialog capture')
+        capture_delay = max(capture_delay, 2300 if 'dialog' in step else 0, extra_delay)
         if step['action'] == 'context_menu' and delay <= capture_delay:
             raise ValueError('Context-menu delay must exceed the popup capture timer')
     return data

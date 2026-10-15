@@ -195,3 +195,34 @@ Legacy dialogs retained dotted artifacts. Preferences and Color Theme did not
 open through the probes. Selected keyframes remain unverified. Network captures
 show editor references, not rendered scenes or simulation results. Tooltip
 creation can fail because Qt cannot find a screen on the isolated desktop.
+
+## Remaining UI recovery (October 15)
+
+The six scenarios in `scenarios/remaining` extend the survey. Run them sequentially
+with fresh output folders, the same 2560x1440 size, and a 240-second timeout.
+Preferences and Color Theme use Qt Quick windows. Capture these with
+`QQuickWindow.grabWindow`; QWidget enumeration cannot see them.
+
+`context_menu` accepts `dialog: "preferences"` with an exact QML `page_name`
+and optional `scroll_y`. Results record the measured scroll range and position.
+`dialog: "color-theme"` accepts `theme_tab` for swatches, sliders, or tweaks.
+`dialog: "help-tooltip"` accepts a native `help_url` and supplies an isolated-screen
+anchor. This captures help content without verifying physical hover behavior.
+All direct dialogs require `settle_ms` greater than 2300.
+
+`framebuffer_probe: true` retains the QWidget capture and adds OpenGL framebuffer
+images for legacy dialogs. Prefer the framebuffer image after visual review.
+A `capture` action can also use `backend: "framebuffer"` for the full-window
+OpenGL surface. This recovers control text but does not recover 3D viewport content.
+`window_point` targets coordinates relative to a floating window instead of a pane.
+
+Keyframe fixtures now select through `ChannelGraphSelection` and report the actual
+selected count. `frame_network` fits actual node rectangles after the editor settles.
+
+The October 15 run captured all 23 preference pages and their measured scroll ranges,
+four theme tabs, six explicit help tooltips, populated network menus, selected keys,
+and three Bundle List menus. Collapsed preference sections remain collapsed.
+Legacy dialog framebuffer images are usable, including Render Scheduler; QWidget
+originals, incidental tooltips, and tooltip error dialogs remain diagnostic evidence.
+Desktop images show layout and controls, with blank 3D viewports. Bundle row context
+clicks still produce no popup. No import, simulation, or render operation was confirmed.

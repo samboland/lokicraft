@@ -1,6 +1,5 @@
 """Small disposable scenes for UI reference capture, never user project edits."""
 import hou
-from PySide6 import QtCore, QtGui, QtWidgets
 
 
 def run(step):
@@ -52,6 +51,7 @@ def run(step):
     if mode == 'bundle':
         bundle = hou.addNodeBundle('Capture_Objects')
         bundle.addNode(geo)
+        bundle.setSelected(True, clear_all_selected=True)
         return {'bundle': bundle.name(), 'nodes': [n.path() for n in bundle.nodes()]}
     if mode == 'renderer':
         parent = hou.node('/out')
@@ -83,26 +83,27 @@ def run(step):
         return {'keyframes': {name: len(node.parm(name).keyframes()) for name in ['tx', 'ry']}}
     if mode == 'keyframe_selection':
         editor = hou.ui.paneTabOfType(hou.paneTabType.ChannelEditor)
-        window = editor.qtParentWindow()
-        point = editor.qtScreenGeometry().center()
-        widget = window.childAt(window.mapFromGlobal(point)) or window
-        widget.setFocus()
-        local = QtCore.QPointF(widget.mapFromGlobal(point))
-        global_pos = QtCore.QPointF(point)
-        QtWidgets.QApplication.sendEvent(widget, QtGui.QMouseEvent(QtCore.QEvent.Type.MouseMove,
-            local, global_pos, QtCore.Qt.MouseButton.NoButton, QtCore.Qt.MouseButton.NoButton,
-            QtCore.Qt.KeyboardModifier.NoModifier))
-        for kind, buttons in [(QtCore.QEvent.Type.MouseButtonPress, QtCore.Qt.MouseButton.LeftButton),
-                              (QtCore.QEvent.Type.MouseButtonRelease, QtCore.Qt.MouseButton.NoButton)]:
-            QtWidgets.QApplication.sendEvent(widget, QtGui.QMouseEvent(kind, local, global_pos,
-                QtCore.Qt.MouseButton.LeftButton, buttons, QtCore.Qt.KeyboardModifier.NoModifier))
-        for kind in [QtCore.QEvent.Type.KeyPress, QtCore.QEvent.Type.KeyRelease]:
-            QtWidgets.QApplication.sendEvent(widget, QtGui.QKeyEvent(kind, QtCore.Qt.Key.Key_A,
-                QtCore.Qt.KeyboardModifier.ControlModifier))
+        selections = []
+        for name in ['tx', 'ry']:
+            parm = geo.node('transform1').parm(name)
+            selection = hou.ChannelGraphSelection(parm.path(), [0] * len(parm.keyframes()))
+            selection.selectValues(tuple(range(len(parm.keyframes()))))
+            selection.selectTimeMarks(tuple(range(len(parm.keyframes()))))
+            selections.append(selection)
+        editor.graph().setSelection(selections)
         selected = editor.graph().selectedKeyframes()
         if not selected:
-            raise RuntimeError('No keyframes selected by the process-local selection attempt')
+            raise RuntimeError('No keyframes selected by ChannelGraph.setSelection')
         return {'selected_keyframes': {p.path(): len(keys) for p, keys in selected.items()}}
+    if mode == 'frame_network':
+        editor = hou.ui.paneTabOfType(hou.paneTabType.NetworkEditor)
+        rects = [editor.itemRect(node) for node in editor.pwd().children()]
+        if not rects:
+            raise RuntimeError('Network has no nodes to frame')
+        editor.setVisibleBounds(hou.BoundingRect(
+            min(r.min()[0] for r in rects)-1, min(r.min()[1] for r in rects)-1,
+            max(r.max()[0] for r in rects)+1, max(r.max()[1] for r in rects)+1))
+        return {'framed_nodes': len(rects)}
     if mode == 'network':
         kind = step['kind']
         if kind == 'materials':
@@ -129,10 +130,14 @@ def run(step):
             raise ValueError(kind)
         parent.layoutChildren()
         editor = hou.ui.paneTabOfType(hou.paneTabType.NetworkEditor)
+        editor.setIsCurrentTab()
         editor.setPwd(parent)
-        editor.homeToSelection()
         children = parent.children()
         if children:
             children[0].setCurrent(True, clear_all_selected=True)
+            positions = [node.position() for node in children]
+            editor.setVisibleBounds(hou.BoundingRect(
+                min(p[0] for p in positions)-2, min(p[1] for p in positions)-2,
+                max(p[0] for p in positions)+3, max(p[1] for p in positions)+2))
         return {'parent': parent.path(), 'nodes': [{'path': n.path(), 'type': n.type().name()} for n in children]}
     raise ValueError(mode)

@@ -14,7 +14,8 @@ def build(root):
     quality = json.loads(quality_file.read_text()) if quality_file.exists() else {}
     for run in sorted(p for p in root.iterdir() if p.is_dir() and (p/'result.json').exists()):
         result = json.loads((run/'result.json').read_text())
-        stage = {'name': run.name, 'run_completed': result['ok'], 'probes': [], 'state_errors': [], 'screenshots': []}
+        stage = {'name': run.name, 'run_completed': result['ok'], 'run_error': result.get('error'),
+                 'probes': [], 'state_errors': [], 'screenshots': []}
         cards = []
         for path in sorted((run/'states').glob('*.json')):
             data = json.loads(path.read_text())
@@ -31,24 +32,36 @@ def build(root):
             cards.append(f'<article><h3>{html.escape(path.stem)}</h3><a href="{rel}"><img loading="lazy" src="{rel}"></a></article>')
         for path in sorted((run/'contexts').glob('*/result.json')):
             data = json.loads(path.read_text())
-            stage['probes'].append({'name': data['name'], 'status': data['status'], 'images': len(data['popups'])})
+            stage['probes'].append({'name': data['name'], 'status': data['status'], 'images': len(data['popups']),
+                                   'help_error': data.get('help_error', False), 'scroll': data.get('scroll'),
+                                   'capture_gaps': data.get('capture_gaps', []),
+                                   'error': data.get('trigger_error') or data.get('error') or data.get('scroll_error')})
             images = []
             for popup in data['popups']:
                 picture = path.parent/popup['file']
                 if hashlib.sha256(picture.read_bytes()).hexdigest() != popup['sha256']:
                     raise ValueError('Hash mismatch: ' + str(picture))
                 rel = picture.relative_to(root).as_posix()
-                images.append(f'<a href="{rel}"><img loading="lazy" src="{rel}"></a>')
+                backend = html.escape(popup.get('backend', 'QWidget.grab'))
+                images.append(f'<figure><a href="{rel}"><img loading="lazy" src="{rel}"></a><figcaption>{backend}</figcaption></figure>')
             if images:
                 cards.append(f'<article><h3>{html.escape(data["name"])}</h3><div class="images">{"".join(images)}</div></article>')
         stage['review'] = quality.get(run.name, 'Not reviewed')
+        scenario_path = run/'scenario.json'
+        if scenario_path.exists():
+            recorded = {probe['name'] for probe in stage['probes']}
+            for step in json.loads(scenario_path.read_text())['steps']:
+                if step['action'] == 'context_menu' and step['name'] not in recorded:
+                    stage['probes'].append({'name': step['name'], 'status': 'missing-result', 'images': 0})
         stages.append(stage)
         empty = [p['name'] for p in stage['probes'] if p['status'] != 'popup-captured']
-        sections.append(f'<section><h2>{html.escape(run.name)}</h2><p>{html.escape(stage["review"])}</p><p>Probe gaps: {html.escape(", ".join(empty)) or "none"}. Scene setup errors: {len(stage["state_errors"])}.</p><div class="cards">{"".join(cards)}</div></section>')
+        failure = f'<details><summary>Run stopped with an error</summary><pre>{html.escape(str(stage["run_error"]))}</pre></details>' if not stage['run_completed'] else ''
+        sections.append(f'<section><h2>{html.escape(run.name)}</h2><p>{html.escape(stage["review"])}</p>{failure}<p>Probe gaps: {html.escape(", ".join(empty)) or "none"}. Scene setup errors: {len(stage["state_errors"])}.</p><div class="cards">{"".join(cards)}</div></section>')
     summary = {'stages': stages, 'popup_images': sum(p['images'] for s in stages for p in s['probes']),
                'reference_images': sum(len(s['screenshots']) for s in stages),
                'probes': sum(len(s['probes']) for s in stages),
                'no_popup': sum(p['status']=='no-popup' for s in stages for p in s['probes']),
+               'missing_results': sum(p['status']=='missing-result' for s in stages for p in s['probes']),
                'state_errors': sum(len(s['state_errors']) for s in stages)}
     (root/'coverage.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
     document = '''<!doctype html><meta charset="utf-8"><title>Houdini UI capture survey</title><style>

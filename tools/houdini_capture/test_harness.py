@@ -37,7 +37,9 @@ class HarnessTests(unittest.TestCase):
             scenario = Path(directory) / 'scenario.json'
             for step in ({'action':'execute'}, {'action':'capture','settle_ms':999999},
                          {'action':'context_menu','settle_ms':100},
-                         {'action':'context_menu','hover':[100,30]}):
+                         {'action':'context_menu','hover':[100,30]},
+                         {'action':'context_menu','capture_after_ms':'bad'},
+                         {'action':'context_menu','dialog':'unknown','settle_ms':3000}):
                 scenario.write_text(json.dumps({'steps':[step]}))
                 with self.assertRaises(ValueError):
                     read_scenario(scenario)
@@ -48,7 +50,8 @@ class HarnessTests(unittest.TestCase):
             for extra, boundary in [({'method':'hover'}, 2000),
                                     ({'method':'tooltip'}, 2000),
                                     ({'followups':[{}, {}]}, 2400),
-                                    ({'capture_after_ms':4500}, 4500)]:
+                                    ({'capture_after_ms':4500}, 4500),
+                                    ({'dialog':'preferences'}, 2300)]:
                 step = {'action':'context_menu', **extra, 'settle_ms':boundary}
                 path.write_text(json.dumps({'steps':[step]}))
                 with self.assertRaises(ValueError):
@@ -56,6 +59,20 @@ class HarnessTests(unittest.TestCase):
                 step['settle_ms'] += 1
                 path.write_text(json.dumps({'steps':[step]}))
                 self.assertEqual(read_scenario(path)['steps'][0], step)
+
+    def test_gallery_reports_probe_without_result_after_run_failure(self):
+        from survey_gallery import build
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory) / 'failed-run'
+            run.mkdir()
+            (run / 'result.json').write_text(json.dumps({'ok':False,'error':'dialog failed'}))
+            (run / 'scenario.json').write_text(json.dumps({'steps':[
+                {'action':'context_menu','name':'unrecorded-dialog'}]}))
+            counts = build(directory)
+            self.assertEqual(counts['missing_results'], 1)
+            page = (Path(directory) / 'index.html').read_text()
+            self.assertIn('unrecorded-dialog', page)
+            self.assertIn('dialog failed', page)
 
 
 if __name__ == '__main__':

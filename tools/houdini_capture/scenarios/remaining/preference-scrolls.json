@@ -1,0 +1,239 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Anim-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Anim",
+      "scroll_y": 544.0,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Anim-scroll-2",
+      "dialog": "preferences",
+      "page_name": "Anim",
+      "scroll_y": 587.765625,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-ApexDefaults-scroll-1",
+      "dialog": "preferences",
+      "page_name": "ApexDefaults",
+      "scroll_y": 417.6875,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-General-scroll-1",
+      "dialog": "preferences",
+      "page_name": "General",
+      "scroll_y": 472.96875,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Geometry-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Geometry",
+      "scroll_y": 314.5625,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Handles-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Handles",
+      "scroll_y": 544.0,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Handles-scroll-2",
+      "dialog": "preferences",
+      "page_name": "Handles",
+      "scroll_y": 728.15625,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-MotionPathDefaults-scroll-1",
+      "dialog": "preferences",
+      "page_name": "MotionPathDefaults",
+      "scroll_y": 144.125,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Network-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Network",
+      "scroll_y": 511.15625,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Solaris-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Solaris",
+      "scroll_y": 135.125,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Syntax-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Syntax",
+      "scroll_y": 32.0,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Ui-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Ui",
+      "scroll_y": 544.0,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Ui-scroll-2",
+      "dialog": "preferences",
+      "page_name": "Ui",
+      "scroll_y": 739.75,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-View-scroll-1",
+      "dialog": "preferences",
+      "page_name": "View",
+      "scroll_y": 160.75,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "preferences-Warnings-scroll-1",
+      "dialog": "preferences",
+      "page_name": "Warnings",
+      "scroll_y": 124.0,
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-help-sop_box",
+      "dialog": "help-tooltip",
+      "help_url": "tool:sop_box",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-help-sop_sphere",
+      "dialog": "help-tooltip",
+      "help_url": "tool:sop_sphere",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-help-sop_xform",
+      "dialog": "help-tooltip",
+      "help_url": "tool:sop_xform",
+      "point": [
+        0,
+        0
+      ],
+      "capture_after_ms": 2300,
+      "settle_ms": 2800
+    }
+  ]
+}

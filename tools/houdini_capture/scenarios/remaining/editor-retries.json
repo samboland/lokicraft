@@ -1,0 +1,191 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "materials",
+      "name": "materials",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "pane": "NetworkEditor",
+      "file": "materials-network.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "materials-node",
+      "pane": "NetworkEditor",
+      "node": "/mat/reference_material"
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "simulation",
+      "name": "simulation",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "pane": "NetworkEditor",
+      "file": "simulation-network.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "simulation-node",
+      "pane": "NetworkEditor",
+      "node": "/obj/reference_simulation/rigid_body"
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "solaris",
+      "name": "solaris",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "pane": "NetworkEditor",
+      "file": "solaris-network.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "solaris-node",
+      "pane": "NetworkEditor",
+      "node": "/stage/reference_sphere"
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "compositing",
+      "name": "compositing",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "pane": "NetworkEditor",
+      "file": "compositing-network.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "compositing-node",
+      "pane": "NetworkEditor",
+      "node": "/img/reference_comp/reference_color"
+    },
+    {
+      "action": "reference_state",
+      "mode": "bundle",
+      "name": "bundle"
+    },
+    {
+      "action": "floating_pane",
+      "type": "BundleList",
+      "name": "reference_bundles",
+      "settle_ms": 3000
+    },
+    {
+      "action": "capture",
+      "pane": "reference_bundles",
+      "file": "selected-bundle.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-row",
+      "pane": "reference_bundles",
+      "point": [
+        140,
+        70
+      ],
+      "button": "right"
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-menu",
+      "pane": "reference_bundles",
+      "point": [
+        40,
+        -30
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "contents-menu",
+      "pane": "reference_bundles",
+      "point": [
+        135,
+        -30
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "settings-menu",
+      "pane": "reference_bundles",
+      "point": [
+        240,
+        -30
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "file-open",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            46
+          ],
+          "kind": "click"
+        }
+      ],
+      "framebuffer_probe": true,
+      "capture_after_ms": 3000,
+      "settle_ms": 3500
+    },
+    {
+      "action": "context_menu",
+      "name": "import-fbx",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "click"
+        }
+      ],
+      "framebuffer_probe": true,
+      "capture_after_ms": 3000,
+      "settle_ms": 3500
+    }
+  ]
+}
