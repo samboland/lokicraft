@@ -15,3 +15,13 @@ Keep UI, project data, geometry evaluation, and rendering separate.
 
 The capture harness is the first implementation. It does not implement the
 Rust application or establish independent HIP parsing.
+
+## Artcraft references
+
+Artcraft apps are an additional reference for reusable UI and application patterns.
+Sam identifies their license as Apache-2.0; verify each source repository's license
+and notices before copying code or assets. Prefer suitable existing components
+and automated imports over manual recreation.
+
+Sam reports no Artcraft 3D editor yet. Plan for substantial original 3D editor
+work while checking which shared application components can be reused.
