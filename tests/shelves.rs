@@ -99,7 +99,7 @@ fn every_imported_tool_label_fits_at_minimum_shelf_width() {
                 let galley = ctx.fonts_mut(|fonts| {
                     fonts.layout(
                         tool.label.clone(),
-                        egui::FontId::proportional(11.0),
+                        egui::FontId::proportional(lokicraft::shelves::TOOL_TEXT_SIZE),
                         egui::Color32::WHITE,
                         168.0,
                     )
@@ -114,4 +114,74 @@ fn every_imported_tool_label_fits_at_minimum_shelf_width() {
         }
     });
     output.textures_delta.clear();
+}
+
+#[test]
+fn plus_adds_a_tool_and_preserves_it_after_restart() {
+    let dir = std::env::temp_dir().join(format!("lokicraft-plus-{}", std::process::id()));
+    assert!(!dir.exists());
+    let mut h = Harness::builder()
+        .with_size(egui::vec2(1000.0, 700.0))
+        .build_eframe(|cc| Shell::new(&cc.egui_ctx, Location::Dir(dir.clone())));
+    h.run();
+    h.get_by_label("Add to right shelf set").click();
+    h.run();
+    h.get_by_label("Add Tool...").click();
+    h.run();
+    assert_eq!(h.state().shelf_tool_picker, Some(1));
+    h.state_mut().shelf_tool_search = "Quick Shapes".into();
+    h.run();
+    h.get_by_label("Quick Shapes").click();
+    h.run();
+    let target = h.state().shelf_sets[1].selected;
+    assert_eq!(
+        h.state().shelves[target].tools.last().unwrap().label,
+        "Quick Shapes"
+    );
+    assert!(h.state().shelf_tool_picker.is_none());
+    h.state_mut().flush().unwrap();
+    drop(h);
+    let app = Shell::new(&egui::Context::default(), Location::Dir(dir.clone()));
+    assert_eq!(
+        app.shelves[app.shelf_sets[1].selected]
+            .tools
+            .last()
+            .unwrap()
+            .label,
+        "Quick Shapes"
+    );
+    drop(app);
+    std::fs::remove_dir_all(dir).unwrap();
+}
+
+#[test]
+fn plus_adds_and_restores_an_extra_shelf_tab() {
+    let dir = std::env::temp_dir().join(format!("lokicraft-plus-tabs-{}", std::process::id()));
+    assert!(!dir.exists());
+    let mut h = Harness::builder()
+        .with_size(egui::vec2(1000.0, 700.0))
+        .build_eframe(|cc| Shell::new(&cc.egui_ctx, Location::Dir(dir.clone())));
+    h.run();
+    h.get_by_label("Add to left shelf set").click();
+    h.run();
+    h.get_by_label("Shelves ⏵").click();
+    h.run();
+    h.get_by_label("RenderMan RIS").click();
+    h.run();
+    assert_eq!(h.state().shelf_sets[0].members.len(), 15);
+    assert_eq!(
+        h.state().shelves[h.state().shelf_sets[0].selected].label,
+        "RenderMan RIS"
+    );
+    assert_eq!(h.state().shelf_sets[1].members.len(), 17);
+    h.state_mut().flush().unwrap();
+    drop(h);
+    let app = Shell::new(&egui::Context::default(), Location::Dir(dir.clone()));
+    assert_eq!(app.shelf_sets[0].members.len(), 15);
+    assert_eq!(
+        app.shelves[app.shelf_sets[0].selected].label,
+        "RenderMan RIS"
+    );
+    drop(app);
+    std::fs::remove_dir_all(dir).unwrap();
 }

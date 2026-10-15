@@ -1,5 +1,5 @@
 use craft_settings::Location;
-use egui_kittest::Harness;
+use egui_kittest::{Harness, kittest::Queryable};
 use lokicraft::Shell;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let out = std::env::args().nth(1).expect("output directory");
@@ -29,6 +29,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         h.render()
             .map_err(std::io::Error::other)?
             .save(format!("{out}/{name}.png"))?;
+        if name == "default" {
+            h.get_by_label("Add to left shelf set").click();
+            h.run();
+            h.render()
+                .map_err(std::io::Error::other)?
+                .save(format!("{out}/plus-menu.png"))?;
+            h.get_by_label("Add Tool...").click();
+            h.run();
+            h.render()
+                .map_err(std::io::Error::other)?
+                .save(format!("{out}/tool-picker.png"))?;
+        }
     }
     Ok(())
 }

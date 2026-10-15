@@ -3,6 +3,9 @@ use crate::{Shell, model::Shelf, region, tool_button};
 use egui::{Color32, FontId, Id, Rect, Sense, Ui, pos2, vec2};
 use serde::Deserialize;
 
+/// Smaller captions match the hierarchy in the captured Houdini shelf.
+pub const TOOL_TEXT_SIZE: f32 = 9.0;
+
 #[derive(Deserialize)]
 struct Definition {
     shelves: Vec<String>,
@@ -173,12 +176,58 @@ impl Shell {
     fn shelf_set_ui(&mut self, ui: &mut Ui, side: usize) {
         let rect = ui.max_rect();
         let side_name = if side == 0 { "left" } else { "right" };
-        let tabs = Rect::from_min_max(rect.min, pos2(rect.right(), rect.top() + 22.0));
+        let tabs = Rect::from_min_max(rect.min, pos2(rect.right() - 24.0, rect.top() + 22.0));
+        let plus = Rect::from_min_size(pos2(rect.right() - 24.0, rect.top()), vec2(24.0, 22.0));
+        region(ui, plus, |ui| {
+            ui.push_id(("shelf-plus", side), |ui| {
+                let menu = ui.menu_button("+", |ui| {
+                    ui.menu_button("Shelves", |ui| {
+                        egui::ScrollArea::vertical()
+                            .max_height(300.0)
+                            .show(ui, |ui| {
+                                for i in 0..self.shelves.len() {
+                                    let included = self.shelf_sets[side].members.contains(&i);
+                                    if ui
+                                        .add_enabled(
+                                            !included,
+                                            egui::Button::new(&self.shelves[i].label),
+                                        )
+                                        .clicked()
+                                    {
+                                        self.shelf_sets[side].members.push(i);
+                                        self.shelf_sets[side].selected = i;
+                                        self.shelf_sets[side].tab_start =
+                                            self.shelf_sets[side].members.len() - 1;
+                                        self.shelf_sets[side].tool_start = 0;
+                                        ui.close();
+                                    }
+                                }
+                            });
+                    });
+                    if ui.button("Add Tool...").clicked() {
+                        self.shelf_tool_picker = Some(side);
+                        self.shelf_tool_search.clear();
+                        ui.close();
+                    }
+                });
+                menu.response.widget_info(|| {
+                    egui::WidgetInfo::labeled(
+                        egui::WidgetType::Button,
+                        true,
+                        format!("Add to {side_name} shelf set"),
+                    )
+                });
+                menu.response.on_hover_text("Add shelves or tools");
+            });
+        });
         let state = &mut self.shelf_sets[side];
         let widths: Vec<_> = state
             .members
             .iter()
-            .map(|i| text_width(ui, &self.shelves[*i].label, 12.0) + 16.0)
+            .map(|i| {
+                (text_width(ui, &self.shelves[*i].label, 12.0) + 16.0)
+                    .min((tabs.width() - 36.0).max(1.0))
+            })
             .collect();
         let (content, range) = pager(
             ui,
@@ -192,8 +241,10 @@ impl Shell {
             let i = state.members[index];
             let tab = Rect::from_min_size(pos2(x, tabs.top()), vec2(widths[index], tabs.height()));
             region(ui, tab, |ui| {
+                ui.style_mut().wrap_mode = Some(egui::TextWrapMode::Truncate);
                 if ui
                     .selectable_label(state.selected == i, &self.shelves[i].label)
+                    .on_hover_text(&self.shelves[i].label)
                     .clicked()
                 {
                     state.selected = i;
@@ -207,7 +258,7 @@ impl Shell {
         let widths: Vec<_> = tools
             .iter()
             .map(|tool| {
-                (text_width(ui, &tool.label, 11.0) + 14.0)
+                (text_width(ui, &tool.label, TOOL_TEXT_SIZE) + 14.0)
                     .max(48.0)
                     .min((row.width() - 36.0).max(1.0))
             })
@@ -228,6 +279,88 @@ impl Shell {
                 }
             });
             x += widths[i] + 4.0;
+        }
+    }
+}
+
+/// Restore catalog references only; no script or arbitrary executable content.
+pub fn restore_tools(
+    catalog: &mut [Shelf],
+    extras: &std::collections::BTreeMap<String, Vec<String>>,
+) {
+    let original = catalog.to_vec();
+    for shelf in catalog {
+        if let Some(names) = extras.get(&shelf.name) {
+            for name in names {
+                if !shelf.tools.iter().any(|t| &t.name == name) {
+                    if let Some(tool) = original
+                        .iter()
+                        .flat_map(|s| &s.tools)
+                        .find(|t| &t.name == name)
+                    {
+                        shelf.tools.push(tool.clone());
+                    }
+                }
+            }
+        }
+    }
+}
+impl Shell {
+    pub(crate) fn shelf_tool_window(&mut self, ctx: &egui::Context) {
+        let Some(side) = self.shelf_tool_picker else {
+            return;
+        };
+        let target = self.shelf_sets[side].selected;
+        let mut open = true;
+        let mut chosen = None;
+        egui::Window::new("Add tool to shelf")
+            .open(&mut open)
+            .collapsible(false)
+            .default_width(340.0)
+            .show(ctx, |ui| {
+                ui.label(format!("Shelf: {}", self.shelves[target].label));
+                ui.add(
+                    egui::TextEdit::singleline(&mut self.shelf_tool_search).hint_text("Find tool"),
+                );
+                egui::ScrollArea::vertical()
+                    .max_height(320.0)
+                    .show(ui, |ui| {
+                        let mut seen = std::collections::HashSet::new();
+                        for tool in self.shelves.iter().flat_map(|s| &s.tools) {
+                            if seen.insert(&tool.name)
+                                && tool
+                                    .label
+                                    .to_lowercase()
+                                    .contains(&self.shelf_tool_search.to_lowercase())
+                            {
+                                let included = self.shelves[target]
+                                    .tools
+                                    .iter()
+                                    .any(|t| t.name == tool.name);
+                                if ui
+                                    .add_enabled(!included, egui::Button::new(&tool.label))
+                                    .clicked()
+                                {
+                                    chosen = Some(tool.clone());
+                                }
+                            }
+                        }
+                    });
+            });
+        if let Some(tool) = chosen {
+            let name = self.shelves[target].name.clone();
+            self.prefs.update(|p| {
+                p.shelf_extra_tools
+                    .entry(name)
+                    .or_default()
+                    .push(tool.name.clone());
+            });
+            self.shelves[target].tools.push(tool);
+            self.shelf_sets[side].tool_start = self.shelves[target].tools.len() - 1;
+            open = false;
+        }
+        if !open {
+            self.shelf_tool_picker = None;
         }
     }
 }

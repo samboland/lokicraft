@@ -24,6 +24,8 @@ pub struct Prefs {
     pub shelf: String,
     pub right_shelf: String,
     pub shelf_split: f32,
+    pub shelf_members: [Vec<String>; 2],
+    pub shelf_extra_tools: BTreeMap<String, Vec<String>>,
 }
 impl Default for Prefs {
     fn default() -> Self {
@@ -33,6 +35,8 @@ impl Default for Prefs {
             shelf: "Create".into(),
             right_shelf: "Lights and Cameras".into(),
             shelf_split: 0.5,
+            shelf_members: Default::default(),
+            shelf_extra_tools: BTreeMap::new(),
         }
     }
 }
@@ -57,6 +61,8 @@ pub struct Shell {
     pub graph_zoom: f32,
     pub frame_graph: bool,
     pub navigation: viewport::Navigation,
+    pub shelf_tool_picker: Option<usize>,
+    pub shelf_tool_search: String,
     prefs: SettingsStore<Prefs>,
     playback_fraction: f32,
 }
@@ -86,10 +92,33 @@ impl Shell {
         };
         let layout = load_layout(prefs.get().layouts.get(&desktop))
             .unwrap_or_else(|| workspace::preset(&desktop));
-        let shelves: Vec<Shelf> = serde_json::from_str(include_str!("../assets/shelves.json"))
+        let mut shelves: Vec<Shelf> = serde_json::from_str(include_str!("../assets/shelves.json"))
             .expect("checked embedded catalog");
-        let shelf_sets =
+        shelves::restore_tools(&mut shelves, &prefs.get().shelf_extra_tools);
+        let mut shelf_sets =
             shelves::initial_sets(&shelves, [&prefs.get().shelf, &prefs.get().right_shelf]);
+        for side in 0..2 {
+            for name in &prefs.get().shelf_members[side] {
+                if let Some(i) = shelves.iter().position(|s| &s.name == name) {
+                    if !shelf_sets[side].members.contains(&i) {
+                        shelf_sets[side].members.push(i);
+                    }
+                }
+            }
+            let saved = if side == 0 {
+                &prefs.get().shelf
+            } else {
+                &prefs.get().right_shelf
+            };
+            if let Some(index) = shelf_sets[side]
+                .members
+                .iter()
+                .position(|i| shelves[*i].label == *saved)
+            {
+                shelf_sets[side].selected = shelf_sets[side].members[index];
+                shelf_sets[side].tab_start = index;
+            }
+        }
         let shelf_split = if prefs.get().shelf_split.is_finite() {
             prefs.get().shelf_split.clamp(0.1, 0.9)
         } else {
@@ -111,6 +140,8 @@ impl Shell {
             graph_zoom: 1.0,
             frame_graph: true,
             navigation: viewport::Navigation::default(),
+            shelf_tool_picker: None,
+            shelf_tool_search: String::new(),
             prefs,
             playback_fraction: 0.0,
         }
@@ -121,12 +152,20 @@ impl Shell {
             let shelf = self.shelves[self.shelf_sets[0].selected].label.clone();
             let right_shelf = self.shelves[self.shelf_sets[1].selected].label.clone();
             let split = self.shelf_split;
+            let members = std::array::from_fn(|side| {
+                self.shelf_sets[side]
+                    .members
+                    .iter()
+                    .map(|i| self.shelves[*i].name.clone())
+                    .collect()
+            });
             self.prefs.update(|p| {
                 p.desktop = desktop.clone();
                 p.layouts.insert(desktop, json);
                 p.shelf = shelf;
                 p.right_shelf = right_shelf;
                 p.shelf_split = split;
+                p.shelf_members = members;
             });
         }
     }
@@ -226,6 +265,7 @@ impl Shell {
         if self.show_search {
             self.search_window(&ctx);
         }
+        self.shelf_tool_window(&ctx);
         self.remember();
         let tick = self.prefs.tick(Instant::now());
         if let Some(deadline) = tick.next_deadline {
@@ -462,7 +502,7 @@ fn tool_button(ui: &mut Ui, tool: &Tool, width: f32) -> egui::Response {
     }
     let text = p.layout(
         tool.label.clone(),
-        FontId::proportional(11.0),
+        FontId::proportional(shelves::TOOL_TEXT_SIZE),
         ui.visuals().text_color(),
         (width - 12.0).max(1.0),
     );

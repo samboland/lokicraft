@@ -74,3 +74,11 @@ cargo run --locked --example shelf_snapshot -- .captures/shelves
 ```
 
 Definition hashes are recorded in `assets/shelf-sets-provenance.json`.
+
+Each shelf set has a fixed `+` beside its tabs. `Shelves` adds a catalog shelf;
+`Add Tool...` searches existing tools and adds one to the selected shelf.
+Added shelves and tools survive restart. Tools already present cannot be added twice.
+Custom tool scripting is not implemented.
+
+Tool captions use 9 logical pixels, smaller than the 12-pixel shelf tabs, following
+Sam's Houdini typography correction. Width measurement and rendering use the same size.
