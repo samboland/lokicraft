@@ -1,0 +1,140 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-box-shelf",
+      "point": [
+        73,
+        90
+      ],
+      "method": "hover",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-sphere-shelf",
+      "point": [
+        135,
+        90
+      ],
+      "method": "hover",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-play",
+      "point": [
+        165,
+        1320
+      ],
+      "method": "hover",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-parameter-size",
+      "point": [
+        290,
+        230
+      ],
+      "method": "hover",
+      "settle_ms": 2500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-viewport-tool",
+      "point": [
+        20,
+        300
+      ],
+      "method": "hover",
+      "settle_ms": 2500,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "hover-node",
+      "point": [
+        400,
+        300
+      ],
+      "method": "hover",
+      "settle_ms": 2500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-box-shelf",
+      "point": [
+        73,
+        90
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-sphere-shelf",
+      "point": [
+        135,
+        90
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-play",
+      "point": [
+        165,
+        1320
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-parameter-size",
+      "point": [
+        290,
+        230
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-viewport-tool",
+      "point": [
+        20,
+        300
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "tooltip-node",
+      "point": [
+        400,
+        300
+      ],
+      "method": "tooltip",
+      "settle_ms": 2500,
+      "pane": "NetworkEditor"
+    }
+  ]
+}

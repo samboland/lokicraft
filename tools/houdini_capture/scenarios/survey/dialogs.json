@@ -1,0 +1,407 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-open",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            46
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-save-as",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            147
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-new-project",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            190
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-set-project",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            220
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-merge",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-new-asset",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            333
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-preferences",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            220
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-hotkeys",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            250
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-radial-menus",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            280
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-color-theme",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            310
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-aliases-variables",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            340
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-context-options",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            370
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-copernicus-settings",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            412
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-old-compositor-settings",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            443
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-scheduler",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            160
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-preflight",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            291
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-install-library",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            220
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-asset-manager",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            250
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-global-animation",
+      "point": [
+        308,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            670
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-cache-manager",
+      "point": [
+        308,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            700
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-about",
+      "point": [
+        392,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            435
+          ],
+          "kind": "click"
+        }
+      ],
+      "settle_ms": 2400
+    }
+  ]
+}

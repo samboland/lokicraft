@@ -1,0 +1,1256 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "context_menu",
+      "name": "file-recent-files",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        76
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "file-recent-projects",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        250
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "file-import",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        375
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "file-export",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        405
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "edit-objects",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        555
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "edit-stereo",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        585
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "render-create-node",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        15
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "render-edit-node",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        45
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "render-render",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        86
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "render-preview",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        116
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "render-mplay",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        333
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-definition-toolbar",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        57
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-unlock",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        87
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-lock",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        117
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-save",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        147
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-properties",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        177
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "assets-other-tools",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left",
+      "hover": [
+        100,
+        453
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj",
+      "type": "geo",
+      "name": "capture_reference"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj/capture_reference",
+      "type": "box",
+      "name": "box1",
+      "display": true
+    },
+    {
+      "action": "select_node",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "pane",
+      "pane": "NetworkEditor",
+      "path": "/obj/capture_reference"
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-analysis",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-convert",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-copying",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            75
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-curves",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-edges",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            135
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-implicit-surfaces",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            165
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-metaball",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            195
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-nurbs",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            225
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-packed",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            255
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-points",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            285
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-polygons",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            315
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-primitive",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            345
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-tetrahedra",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "geometry-transform",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            293
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            405
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "character-cloth",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            143
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "character-crowds",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            143
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "character-feathers",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            143
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            75
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "character-hair",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            143
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "character-muscles",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            143
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            135
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "environments-clouds",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            233
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "environments-oceans",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            233
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "environments-sky",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            233
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            75
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "environments-terrain",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            233
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "file-io-export",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            263
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "file-io-import",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            263
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "texturing-shaders",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            443
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "texturing-uv",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            443
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "animation-apex",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            83
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "animation-character",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            83
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "animation-motionclip",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            83
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            75
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "animation-pose",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            83
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "animation-rigging",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            83
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            135
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "utility-flow-control",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            473
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "utility-engine",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            473
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            45
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "utility-karma",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            473
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            75
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "utility-scripting",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            473
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "utility-test-geometry",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            473
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            135
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "volume-vdb",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "followups": [
+        {
+          "point": [
+            100,
+            503
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "hover"
+        }
+      ],
+      "settle_ms": 3000
+    }
+  ]
+}

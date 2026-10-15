@@ -42,6 +42,21 @@ class HarnessTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     read_scenario(scenario)
 
+    def test_popup_capture_finishes_before_next_step(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'scenario.json'
+            for extra, boundary in [({'method':'hover'}, 2000),
+                                    ({'method':'tooltip'}, 2000),
+                                    ({'followups':[{}, {}]}, 2400),
+                                    ({'capture_after_ms':4500}, 4500)]:
+                step = {'action':'context_menu', **extra, 'settle_ms':boundary}
+                path.write_text(json.dumps({'steps':[step]}))
+                with self.assertRaises(ValueError):
+                    read_scenario(path)
+                step['settle_ms'] += 1
+                path.write_text(json.dumps({'steps':[step]}))
+                self.assertEqual(read_scenario(path)['steps'][0], step)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "bundle",
+      "name": "bundle"
+    },
+    {
+      "action": "floating_pane",
+      "type": "BundleList",
+      "name": "reference_bundles",
+      "settle_ms": 3000
+    },
+    {
+      "action": "capture",
+      "pane": "reference_bundles",
+      "file": "populated-bundles.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-row",
+      "pane": "reference_bundles",
+      "point": [
+        140,
+        70
+      ]
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-list",
+      "pane": "reference_bundles",
+      "point": [
+        140,
+        45
+      ]
+    }
+  ]
+}

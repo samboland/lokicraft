@@ -32,14 +32,16 @@ def read_scenario(path):
         raise ValueError('Scenario requires a steps array')
     allowed = {'inspect', 'desktop', 'pane', 'create_node', 'select_node',
                'set_parameters', 'capture', 'load_project', 'export_parameters',
-               'capture_shelves', 'show_shelf', 'context_menu', 'floating_pane'}
+               'capture_shelves', 'show_shelf', 'context_menu', 'floating_pane', 'reference_state'}
     for step in data['steps']:
         if not isinstance(step, dict) or step.get('action') not in allowed:
             raise ValueError(f'Unknown scenario action: {step}')
         delay = step.get('settle_ms', 1000)
         if not isinstance(delay, int) or not 100 <= delay <= 30000:
             raise ValueError('settle_ms must be between 100 and 30000')
-        if step['action'] == 'context_menu' and delay <= (1000 if 'hover' in step else 600):
+        capture_delay = 1000 + 700*len(step['followups']) if 'followups' in step else (2000 if step.get('method') in ['hover', 'tooltip'] else (1000 if 'hover' in step else 600))
+        capture_delay = max(capture_delay, step.get('capture_after_ms', 0))
+        if step['action'] == 'context_menu' and delay <= capture_delay:
             raise ValueError('Context-menu delay must exceed the popup capture timer')
     return data
 

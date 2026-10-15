@@ -163,3 +163,35 @@ The gallery verifies hashes and preserves failures and missing probe counts.
 Exact-image deduplication does not count semantic menu types. Coordinates and
 hover rows are specific to the observed Houdini 22.0.466 layout. Other versions,
 different pane sizes, selection states, and deeper submenus remain unverified.
+
+## Sequential UI survey
+
+The eight scenarios in `scenarios/survey` cover top menus, dialogs, deeper menus,
+selection states, modeling states, populated editors, gap retries, and hover states.
+Run each sequentially at 2560x1440 with a 240-second timeout and a fresh output
+folder beneath one survey directory. Build its gallery with:
+
+```powershell
+python tools/houdini_capture/survey_gallery.py .captures/survey
+```
+
+`context_menu` supports `button: "left"` for top menus, ordered `followups`
+with popup-relative `point` and `kind: "hover"` or `"click"`, and `method`
+`"hover"` or `"tooltip"` for probes without clicks. Followups use observed menu
+coordinates. They can execute commands, so review the scenario before running it.
+The included scenarios open dialogs without confirming imports or settings.
+`capture_after_ms` extends the capture timer. `settle_ms` must exceed that timer.
+Network targets can use `node` or a two-node `wire` instead of fixed coordinates.
+
+`reference_state` creates disposable scene fixtures. Each result under `states`
+records success or an error independently of overall scenario completion.
+Tool states record the actual active viewer state. A completed scenario alone
+does not prove every fixture or screenshot succeeded.
+
+The survey gallery verifies image hashes and lists missing popups and fixture
+errors. Optional `review.json` maps run folder names to visual review notes.
+Top menus and modeling menus rendered cleanly in the October 14 survey.
+Legacy dialogs retained dotted artifacts. Preferences and Color Theme did not
+open through the probes. Selected keyframes remain unverified. Network captures
+show editor references, not rendered scenes or simulation results. Tooltip
+creation can fail because Qt cannot find a screen on the isolated desktop.

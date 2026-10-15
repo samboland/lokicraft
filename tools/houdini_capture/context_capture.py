@@ -19,7 +19,14 @@ def probe(root, step, tab=None):
         return info
     if tab:
         rect = tab.qtScreenGeometry()
-        point = rect.topLeft() + QtCore.QPoint(*step['point'])
+        if 'node' in step or 'wire' in step:
+            paths = [step['node']] if 'node' in step else step['wire']
+            positions = [tab.posToScreen(tab.itemRect(hou.node(path)).center()) for path in paths]
+            x = sum(p[0] for p in positions) / len(positions)
+            y = sum(p[1] for p in positions) / len(positions)
+            point = rect.bottomLeft() + QtCore.QPoint(round(x), -round(y))
+        else:
+            point = rect.topLeft() + QtCore.QPoint(*step['point'])
         local = window.mapFromGlobal(point)
     else:
         local = QtCore.QPoint(*step['point'])
@@ -80,19 +87,52 @@ def probe(root, step, tab=None):
         QtWidgets.QApplication.sendEvent(child, QtGui.QMouseEvent(
             QtCore.QEvent.Type.MouseMove, QtCore.QPointF(child.mapFromGlobal(global_pos)), QtCore.QPointF(global_pos),
             QtCore.Qt.MouseButton.NoButton, QtCore.Qt.MouseButton.NoButton, QtCore.Qt.KeyboardModifier.NoModifier))
+    visited = set()
+    def followup(item):
+        popups = [w for w in QtWidgets.QApplication.topLevelWidgets()
+                  if w.isVisible() and getCppPointer(w)[0] not in before and w.width() > 50 and w.height() > 50]
+        fresh = [w for w in popups if getCppPointer(w)[0] not in visited]
+        if not fresh:
+            return
+        popup = fresh[-1]
+        visited.add(getCppPointer(popup)[0])
+        pos = QtCore.QPoint(*item['point'])
+        child = popup.childAt(pos) or popup
+        global_pos = popup.mapToGlobal(pos)
+        local_pos = child.mapFromGlobal(global_pos)
+        QtWidgets.QApplication.sendEvent(child, QtGui.QMouseEvent(
+            QtCore.QEvent.Type.MouseMove, QtCore.QPointF(local_pos), QtCore.QPointF(global_pos),
+            QtCore.Qt.MouseButton.NoButton, QtCore.Qt.MouseButton.NoButton, QtCore.Qt.KeyboardModifier.NoModifier))
+        if item.get('kind') == 'click':
+            for kind, buttons in [(QtCore.QEvent.Type.MouseButtonPress, QtCore.Qt.MouseButton.LeftButton),
+                                  (QtCore.QEvent.Type.MouseButtonRelease, QtCore.Qt.MouseButton.NoButton)]:
+                QtWidgets.QApplication.sendEvent(child, QtGui.QMouseEvent(kind,
+                    QtCore.QPointF(local_pos), QtCore.QPointF(global_pos), QtCore.Qt.MouseButton.LeftButton,
+                    buttons, QtCore.Qt.KeyboardModifier.NoModifier))
     if 'hover' in step:
         QtCore.QTimer.singleShot(300, hover)
-    QtCore.QTimer.singleShot(1000 if 'hover' in step else 600, finish)
+    for i, item in enumerate(step.get('followups', [])):
+        QtCore.QTimer.singleShot(400 + 700*i, lambda item=item: followup(item))
+    finish_delay = 1000 + 700*len(step['followups']) if 'followups' in step else (2000 if step.get('method') in ['hover', 'tooltip'] else (1000 if 'hover' in step else 600))
+    finish_delay = max(finish_delay, step.get('capture_after_ms', 0))
+    QtCore.QTimer.singleShot(finish_delay, finish)
     if step.get('method') == 'context':
         event = QtGui.QContextMenuEvent(QtGui.QContextMenuEvent.Reason.Mouse, target_point, point)
         QtWidgets.QApplication.sendEvent(widget, event)
-    else:
+    elif step.get('method') in ['hover', 'tooltip']:
         QtWidgets.QApplication.sendEvent(widget, QtGui.QMouseEvent(
             QtCore.QEvent.Type.MouseMove, QtCore.QPointF(target_point), QtCore.QPointF(point),
             QtCore.Qt.MouseButton.NoButton, QtCore.Qt.MouseButton.NoButton, QtCore.Qt.KeyboardModifier.NoModifier))
-        for event_type, buttons in [(QtCore.QEvent.Type.MouseButtonPress, QtCore.Qt.MouseButton.RightButton),
+        if step['method'] == 'tooltip':
+            QtWidgets.QApplication.sendEvent(widget, QtGui.QHelpEvent(QtCore.QEvent.Type.ToolTip, target_point, point))
+    else:
+        button = QtCore.Qt.MouseButton.LeftButton if step.get('button') == 'left' else QtCore.Qt.MouseButton.RightButton
+        QtWidgets.QApplication.sendEvent(widget, QtGui.QMouseEvent(
+            QtCore.QEvent.Type.MouseMove, QtCore.QPointF(target_point), QtCore.QPointF(point),
+            QtCore.Qt.MouseButton.NoButton, QtCore.Qt.MouseButton.NoButton, QtCore.Qt.KeyboardModifier.NoModifier))
+        for event_type, buttons in [(QtCore.QEvent.Type.MouseButtonPress, button),
                                     (QtCore.QEvent.Type.MouseButtonRelease, QtCore.Qt.MouseButton.NoButton)]:
             event = QtGui.QMouseEvent(event_type, QtCore.QPointF(target_point), QtCore.QPointF(point),
-                QtCore.Qt.MouseButton.RightButton, buttons, QtCore.Qt.KeyboardModifier.NoModifier)
+                button, buttons, QtCore.Qt.KeyboardModifier.NoModifier)
             QtWidgets.QApplication.sendEvent(widget, event)
     return {'name': step['name'], 'target_class': info['target_class']}

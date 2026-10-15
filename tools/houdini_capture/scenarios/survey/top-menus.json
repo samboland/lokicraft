@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-file",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-edit",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-render",
+      "point": [
+        157,
+        18
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-assets",
+      "point": [
+        229,
+        18
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-windows",
+      "point": [
+        308,
+        18
+      ],
+      "button": "left"
+    },
+    {
+      "action": "context_menu",
+      "name": "top-help",
+      "point": [
+        392,
+        18
+      ],
+      "button": "left"
+    }
+  ]
+}

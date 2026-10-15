@@ -89,6 +89,15 @@ def capture(step):
 
 def execute(step):
     action = step['action']
+    if action == 'reference_state':
+        from reference_states import run
+        try:
+            data = {'ok': True, 'result': run(step)}
+        except Exception:
+            data = {'ok': False, 'error': traceback.format_exc()}
+        write_json(output_path('states/' + step['name'] + '.json'), data)
+        hou.ui.triggerUpdate()
+        return data
     if action == 'context_menu':
         from context_capture import probe
         return probe(ROOT, step, pane(step['pane']) if 'pane' in step else None)

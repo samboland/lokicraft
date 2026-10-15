@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "animation",
+      "name": "animation",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "keyframe_selection",
+      "name": "keyframe-retry"
+    },
+    {
+      "action": "capture",
+      "file": "animation.png"
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "materials",
+      "name": "materials",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "materials.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "materials-network",
+      "pane": "NetworkEditor",
+      "point": [
+        400,
+        300
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "simulation",
+      "name": "simulation",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "simulation.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "simulation-network",
+      "pane": "NetworkEditor",
+      "point": [
+        400,
+        300
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "solaris",
+      "name": "solaris",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "solaris.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "solaris-network",
+      "pane": "NetworkEditor",
+      "point": [
+        400,
+        300
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "network",
+      "kind": "compositing",
+      "name": "compositing",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "compositing.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "compositing-network",
+      "pane": "NetworkEditor",
+      "point": [
+        400,
+        300
+      ]
+    }
+  ]
+}

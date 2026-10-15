@@ -1,0 +1,134 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "xform",
+      "name": "xform",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-xform.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-xform",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "edit",
+      "name": "edit",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-edit.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-edit",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "polyextrude",
+      "name": "polyextrude",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-polyextrude.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-polyextrude",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "polybevel",
+      "name": "polybevel",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-polybevel.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-polybevel",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "polybridge",
+      "name": "polybridge",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-polybridge.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-polybridge",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "tool",
+      "type": "knife",
+      "name": "knife",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "tool-knife.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "tool-knife",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    }
+  ]
+}

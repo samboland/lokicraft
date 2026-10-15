@@ -1,0 +1,256 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "pane",
+      "pane": "DetailsView",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "capture",
+      "file": "populated-spreadsheet.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "spreadsheet-cell",
+      "pane": "DetailsView",
+      "point": [
+        190,
+        170
+      ]
+    },
+    {
+      "action": "context_menu",
+      "name": "spreadsheet-header",
+      "pane": "DetailsView",
+      "point": [
+        190,
+        100
+      ]
+    },
+    {
+      "action": "context_menu",
+      "name": "spreadsheet-row",
+      "pane": "DetailsView",
+      "point": [
+        45,
+        170
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "bundle",
+      "name": "bundle"
+    },
+    {
+      "action": "floating_pane",
+      "type": "BundleList",
+      "name": "reference_bundles",
+      "settle_ms": 3000
+    },
+    {
+      "action": "capture",
+      "pane": "reference_bundles",
+      "file": "populated-bundles.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-row",
+      "pane": "reference_bundles",
+      "point": [
+        140,
+        160
+      ]
+    },
+    {
+      "action": "context_menu",
+      "name": "bundle-list",
+      "pane": "reference_bundles",
+      "point": [
+        140,
+        90
+      ]
+    },
+    {
+      "action": "context_menu",
+      "name": "paste-other-retry",
+      "pane": "Parm",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        398
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-preferences-retry",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            220
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 4500,
+      "settle_ms": 5000
+    },
+    {
+      "action": "context_menu",
+      "name": "dialog-color-theme-retry",
+      "point": [
+        94,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            310
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 4500,
+      "settle_ms": 5000
+    },
+    {
+      "action": "context_menu",
+      "name": "import-geometry",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            15
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 3500,
+      "settle_ms": 4000
+    },
+    {
+      "action": "context_menu",
+      "name": "import-fbx",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            105
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 3500,
+      "settle_ms": 4000
+    },
+    {
+      "action": "context_menu",
+      "name": "import-alembic",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            165
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 3500,
+      "settle_ms": 4000
+    },
+    {
+      "action": "context_menu",
+      "name": "import-gltf",
+      "point": [
+        40,
+        18
+      ],
+      "button": "left",
+      "followups": [
+        {
+          "point": [
+            100,
+            375
+          ],
+          "kind": "hover"
+        },
+        {
+          "point": [
+            100,
+            195
+          ],
+          "kind": "click"
+        }
+      ],
+      "capture_after_ms": 3500,
+      "settle_ms": 4000
+    },
+    {
+      "action": "reference_state",
+      "mode": "renderer",
+      "name": "renderer",
+      "settle_ms": 2000
+    },
+    {
+      "action": "capture",
+      "file": "render-settings.png"
+    }
+  ]
+}

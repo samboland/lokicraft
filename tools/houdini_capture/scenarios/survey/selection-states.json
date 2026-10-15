@@ -1,0 +1,119 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "reference_state",
+      "mode": "setup",
+      "name": "setup",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "geometry_selection",
+      "kind": "Points",
+      "name": "select-Points"
+    },
+    {
+      "action": "capture",
+      "file": "selection-Points.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "selected-Points",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "geometry_selection",
+      "kind": "Edges",
+      "name": "select-Edges"
+    },
+    {
+      "action": "capture",
+      "file": "selection-Edges.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "selected-Edges",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "geometry_selection",
+      "kind": "Primitives",
+      "name": "select-Primitives"
+    },
+    {
+      "action": "capture",
+      "file": "selection-Primitives.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "selected-Primitives",
+      "pane": "SceneViewer",
+      "point": [
+        850,
+        550
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "nodes_selection",
+      "name": "select-nodes"
+    },
+    {
+      "action": "capture",
+      "file": "selected-nodes.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "multiple-nodes",
+      "pane": "NetworkEditor",
+      "node": "/obj/capture_reference/transform1"
+    },
+    {
+      "action": "context_menu",
+      "name": "wire-connection",
+      "pane": "NetworkEditor",
+      "wire": [
+        "/obj/capture_reference/box1",
+        "/obj/capture_reference/transform1"
+      ]
+    },
+    {
+      "action": "reference_state",
+      "mode": "animation",
+      "name": "animation",
+      "settle_ms": 2000
+    },
+    {
+      "action": "reference_state",
+      "mode": "keyframe_selection",
+      "name": "selected-keyframes"
+    },
+    {
+      "action": "capture",
+      "file": "selected-keyframes.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "selected-keyframes",
+      "pane": "ChannelEditor",
+      "point": [
+        600,
+        300
+      ]
+    }
+  ]
+}
