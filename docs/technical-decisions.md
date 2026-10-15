@@ -25,3 +25,5 @@ and automated imports over manual recreation.
 
 Sam reports no Artcraft 3D editor yet. Plan for substantial original 3D editor
 work while checking which shared application components can be reused.
+
+The source audit and tested reuse choices are in [artcraft-reuse.md](artcraft-reuse.md). Prefer the pinned craft-ui, craft-settings, and craft-atomic components before creating equivalents.
