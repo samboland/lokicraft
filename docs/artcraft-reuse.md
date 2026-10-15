@@ -1,7 +1,8 @@
 # Artcraft reuse assessment
 
 Inspected on 2026-10-15. Choose shared crates before copying editor code.
-No Rust application has been built in LokiCraft yet.
+The initial Rust shell now uses the selected components. See [shell.md](shell.md).
+The assessment below records the pre-build audit; GPU verification is documented there.
 
 ## Decision
 

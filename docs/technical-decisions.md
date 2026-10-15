@@ -8,13 +8,14 @@
 - Capture tooling may use Python and Houdini APIs; the application remains Rust.
 - Nuke is a separate project.
 
-Exact egui, wgpu, docking, and node editor versions remain unpinned until the
-first Rust integration build verifies that they share compatible dependencies.
+The shell pins egui/eframe 0.36.2 and craft-ui at the audited revision.
+Cargo.lock resolves wgpu 30.0.1. The offscreen wgpu integration renders successfully.
+A node editor dependency remains undecided.
 Do not make the node editor library's graph the canonical project format.
 Keep UI, project data, geometry evaluation, and rendering separate.
 
-The capture harness is the first implementation. It does not implement the
-Rust application or establish independent HIP parsing.
+The Rust shell and capture harness are implemented. See [shell.md](shell.md).
+The shell does not evaluate geometry or establish independent HIP parsing.
 
 ## Artcraft references
 

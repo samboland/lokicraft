@@ -1,0 +1,2825 @@
+[
+  {
+    "name": "RenderManRIS",
+    "label": "RenderMan RIS",
+    "tools": [
+      {
+        "name": "rman_pxrrectlight",
+        "label": "Rect Light"
+      },
+      {
+        "name": "rman_pxrdisklight",
+        "label": "Disk Light"
+      },
+      {
+        "name": "rman_pxrdistantlight",
+        "label": "Distant Light"
+      },
+      {
+        "name": "rman_pxrspherelight",
+        "label": "Sphere Light"
+      },
+      {
+        "name": "rman_pxraovlight",
+        "label": "AOV Light"
+      },
+      {
+        "name": "rman_pxrdomelight",
+        "label": "Dome Light"
+      },
+      {
+        "name": "rman_pxrportallight",
+        "label": "Portal Light"
+      },
+      {
+        "name": "rman_pxrenvdaylight",
+        "label": "Env Day Light"
+      },
+      {
+        "name": "rman_pxrmeshlight",
+        "label": "Mesh Light"
+      },
+      {
+        "name": "rman_risnet",
+        "label": "RIS Shader Network"
+      },
+      {
+        "name": "rman_pxrsurface",
+        "label": "Surface"
+      },
+      {
+        "name": "rman_pxrmarschner",
+        "label": "Marschner Hair"
+      },
+      {
+        "name": "rman_pxrvolume",
+        "label": "Volume"
+      },
+      {
+        "name": "rman_ris",
+        "label": "RIS ROP"
+      }
+    ]
+  },
+  {
+    "name": "animation",
+    "label": "Animation",
+    "tools": [
+      {
+        "name": "object_pose",
+        "label": "Pose"
+      },
+      {
+        "name": "object_blendpose",
+        "label": "BlendPose"
+      },
+      {
+        "name": "object_lagobject",
+        "label": "Lag"
+      },
+      {
+        "name": "object_jiggleobject",
+        "label": "Jiggle"
+      },
+      {
+        "name": "object_constraintparentblend",
+        "label": "Parent Blend"
+      },
+      {
+        "name": "object_constraintblend",
+        "label": "Blend"
+      },
+      {
+        "name": "object_constraintlookat",
+        "label": "Look At"
+      },
+      {
+        "name": "object_constraintpath",
+        "label": "Follow Path"
+      },
+      {
+        "name": "object_constraintpoints",
+        "label": "Points"
+      },
+      {
+        "name": "object_constraintsurface",
+        "label": "Surface"
+      }
+    ]
+  },
+  {
+    "name": "characters",
+    "label": "Characters",
+    "tools": [
+      {
+        "name": "object_simplebiped",
+        "label": "Simple Biped"
+      },
+      {
+        "name": "object_simplefemale",
+        "label": "Simple Female"
+      },
+      {
+        "name": "object_simplemale",
+        "label": "Simple Male"
+      },
+      {
+        "name": "object_mocapbiped1",
+        "label": "Mocap Biped 1"
+      },
+      {
+        "name": "object_mocapbiped2",
+        "label": "Mocap Biped 2"
+      },
+      {
+        "name": "object_mocapbiped3",
+        "label": "Mocap Biped 3"
+      },
+      {
+        "name": "object_mocapbiped3",
+        "label": "Mocap Biped 3"
+      }
+    ]
+  },
+  {
+    "name": "cloth_dynamics",
+    "label": "FEM Cloth",
+    "tools": [
+      {
+        "name": "dynamics_clothobject",
+        "label": "Cloth Object"
+      },
+      {
+        "name": "dop_surfacecollider",
+        "label": "Surface Collider"
+      },
+      {
+        "name": "dynamics_attachconstraint",
+        "label": "Attach to Body"
+      },
+      {
+        "name": "dynamics_clothfollowtarget",
+        "label": "Constrain Points to Target"
+      },
+      {
+        "name": "dynamics_stitchconstraint",
+        "label": "Stitch Cloth"
+      },
+      {
+        "name": "dynamics_clothproxy",
+        "label": "Cloth Proxy"
+      }
+    ]
+  },
+  {
+    "name": "cloud",
+    "label": "Cloud FX",
+    "tools": [
+      {
+        "name": "cloud_create",
+        "label": "Cloud Rig"
+      },
+      {
+        "name": "sop_cloud::2.0",
+        "label": "Cloud"
+      },
+      {
+        "name": "sop_cloudnoise",
+        "label": "Cloud Noise"
+      },
+      {
+        "name": "cloud_light",
+        "label": "Cloud Light"
+      },
+      {
+        "name": "sky_rig",
+        "label": "Sky Rig"
+      }
+    ]
+  },
+  {
+    "name": "collisions",
+    "label": "Collisions",
+    "tools": [
+      {
+        "name": "dynamics_staticobject",
+        "label": "Static Object"
+      },
+      {
+        "name": "dop_deformingobject",
+        "label": "Deforming Object"
+      },
+      {
+        "name": "dop_surfacecollider",
+        "label": "Surface Collider"
+      },
+      {
+        "name": "dop_groundplane",
+        "label": "Ground Plane"
+      },
+      {
+        "name": "dop_terrainobject",
+        "label": "Terrain Object"
+      }
+    ]
+  },
+  {
+    "name": "constraints",
+    "label": "Constraints",
+    "tools": [
+      {
+        "name": "object_constraintparentblend",
+        "label": "Parent Blend"
+      },
+      {
+        "name": "object_constraintblend",
+        "label": "Blend"
+      },
+      {
+        "name": "object_constraintlookat",
+        "label": "Look At"
+      },
+      {
+        "name": "object_constraintpath",
+        "label": "Follow Path"
+      },
+      {
+        "name": "object_constraintpoints",
+        "label": "Points"
+      },
+      {
+        "name": "object_constraintsurface",
+        "label": "Surface"
+      },
+      {
+        "name": "object_constrainttransform",
+        "label": "Transform Constraint"
+      },
+      {
+        "name": "object_blendpose",
+        "label": "BlendPose"
+      },
+      {
+        "name": "object_lagobject",
+        "label": "Lag"
+      },
+      {
+        "name": "object_jiggleobject",
+        "label": "Jiggle"
+      },
+      {
+        "name": "object_constraintgamepad",
+        "label": "Gamepad"
+      },
+      {
+        "name": "sop_constraintnetwork",
+        "label": "Constraints Network"
+      },
+      {
+        "name": "object_constrainttoggle",
+        "label": "Toggle Constraint"
+      },
+      {
+        "name": "object_constraintbake",
+        "label": "Bake Constraint"
+      },
+      {
+        "name": "object_constraintdelete",
+        "label": "Delete Constraint"
+      }
+    ]
+  },
+  {
+    "name": "create",
+    "label": "Create",
+    "tools": [
+      {
+        "name": "sop_box",
+        "label": "Box"
+      },
+      {
+        "name": "geometry_sphere",
+        "label": "Sphere"
+      },
+      {
+        "name": "geometry_tube",
+        "label": "Tube"
+      },
+      {
+        "name": "sop_torus",
+        "label": "Torus"
+      },
+      {
+        "name": "sop_grid",
+        "label": "Grid"
+      },
+      {
+        "name": "object_null",
+        "label": "Null"
+      },
+      {
+        "name": "geometry_line",
+        "label": "Line"
+      },
+      {
+        "name": "geometry_circle",
+        "label": "Circle"
+      },
+      {
+        "name": "sop_curve::2.0_bezier",
+        "label": "Curve Bezier"
+      },
+      {
+        "name": "geometry_drawcurve",
+        "label": "Draw Curve"
+      },
+      {
+        "name": "object_path",
+        "label": "Path"
+      },
+      {
+        "name": "geometry_spraypaint",
+        "label": "Spray Paint"
+      },
+      {
+        "name": "sop_font",
+        "label": "Font"
+      },
+      {
+        "name": "geometry_platonic",
+        "label": "Platonic Solids"
+      },
+      {
+        "name": "sop_lsystem",
+        "label": "L-System"
+      },
+      {
+        "name": "sop_metaball",
+        "label": "Metaball"
+      },
+      {
+        "name": "geometry_file",
+        "label": "File"
+      },
+      {
+        "name": "sop_spiral",
+        "label": "Spiral"
+      },
+      {
+        "name": "geometry_helix",
+        "label": "Helix"
+      },
+      {
+        "name": "quickshapes",
+        "label": "Quick Shapes"
+      }
+    ]
+  },
+  {
+    "name": "crowds",
+    "label": "Crowds",
+    "tools": [
+      {
+        "name": "object_crowdagent",
+        "label": "Agent"
+      },
+      {
+        "name": "object_crowdaddclip",
+        "label": "Add Clip"
+      },
+      {
+        "name": "object_crowdcollisionlayer",
+        "label": "Collision Layer"
+      },
+      {
+        "name": "object_crowdconfigurejoints",
+        "label": "Configure Joints"
+      },
+      {
+        "name": "object_crowdpopulate",
+        "label": "Populate"
+      },
+      {
+        "name": "object_crowdpaintdensity",
+        "label": "Paint Density"
+      },
+      {
+        "name": "object_crowdsolver",
+        "label": "Simulate"
+      },
+      {
+        "name": "object_crowdterrain",
+        "label": "Terrain Foot Planting"
+      },
+      {
+        "name": "object_crowdobstacle",
+        "label": "Obstacle"
+      },
+      {
+        "name": "object_crowdpath",
+        "label": "Path"
+      },
+      {
+        "name": "object_crowdlookat",
+        "label": "Look At"
+      },
+      {
+        "name": "object_crowdtargetposition",
+        "label": "Target Position"
+      },
+      {
+        "name": "object_crowdagentcam",
+        "label": "Agent Cam"
+      },
+      {
+        "name": "object_stadiumcrowdsexample",
+        "label": "Stadium Example"
+      },
+      {
+        "name": "object_streetcrowdsexample",
+        "label": "Street Example"
+      },
+      {
+        "name": "object_formationcrowdsexample",
+        "label": "Formation Example"
+      },
+      {
+        "name": "object_fuzzyobstaclescrowdsexample",
+        "label": "Fuzzy Obstacles Example"
+      },
+      {
+        "name": "object_fuzzytransitioncrowdsexample",
+        "label": "Fuzzy Transition Example"
+      },
+      {
+        "name": "object_ragdollrunexample",
+        "label": "Ragdoll Run Example"
+      }
+    ]
+  },
+  {
+    "name": "deform",
+    "label": "Deform",
+    "tools": [
+      {
+        "name": "geometry_twist",
+        "label": "Twist"
+      },
+      {
+        "name": "sop_bend",
+        "label": "Bend"
+      },
+      {
+        "name": "geometry_lineartaper",
+        "label": "Linear Taper"
+      },
+      {
+        "name": "geometry_squashstretch",
+        "label": "Squash and Stretch"
+      },
+      {
+        "name": "sop_bulge",
+        "label": "Bulge"
+      },
+      {
+        "name": "sop_lattice",
+        "label": "Lattice Deform"
+      },
+      {
+        "name": "sop_fractal",
+        "label": "Fractal"
+      },
+      {
+        "name": "geometry_mountain",
+        "label": "Mountain"
+      },
+      {
+        "name": "geometry_waves",
+        "label": "Waves"
+      },
+      {
+        "name": "sop_ripple::2.0",
+        "label": "Ripple"
+      },
+      {
+        "name": "object_morph",
+        "label": "Morph"
+      }
+    ]
+  },
+  {
+    "name": "drive_simulation",
+    "label": "Drive Simulation",
+    "tools": [
+      {
+        "name": "dynamics_newsimulation",
+        "label": "New Simulation"
+      },
+      {
+        "name": "dop_group",
+        "label": "Group Dynamic Objects"
+      },
+      {
+        "name": "dop_gravity",
+        "label": "Gravity Force"
+      },
+      {
+        "name": "dop_drag",
+        "label": "Drag Force"
+      },
+      {
+        "name": "dop_uniformforce",
+        "label": "Uniform Force"
+      },
+      {
+        "name": "dop_fan",
+        "label": "Fan Force"
+      },
+      {
+        "name": "dop_fluidforce",
+        "label": "Fluid Force"
+      },
+      {
+        "name": "dop_windforce",
+        "label": "Wind Force"
+      },
+      {
+        "name": "dop_magnetforce",
+        "label": "Magnet Force"
+      },
+      {
+        "name": "dop_vortexforce",
+        "label": "Vortex Force"
+      }
+    ]
+  },
+  {
+    "name": "grains",
+    "label": "Grains",
+    "tools": [
+      {
+        "name": "dynamics_popgrains",
+        "label": "Dry Sand"
+      },
+      {
+        "name": "dynamics_popgrainswet",
+        "label": "Wet Sand"
+      },
+      {
+        "name": "dynamics_sandbox",
+        "label": "Sand Box"
+      },
+      {
+        "name": "dynamics_rbdgrains",
+        "label": "RBD Grains"
+      },
+      {
+        "name": "geometry_grainupres",
+        "label": "Upres Sand"
+      },
+      {
+        "name": "dynamics_popgrainsolid",
+        "label": "Granular Solid"
+      },
+      {
+        "name": "dynamics_popgrainsheet",
+        "label": "Granular Sheet"
+      },
+      {
+        "name": "dynamics_popgrainstrand",
+        "label": "Granular Strand"
+      },
+      {
+        "name": "dynamics_popautofreeze",
+        "label": "Auto-Sleep Particles"
+      },
+      {
+        "name": "dynamics_popawaken",
+        "label": "Awaken By Geometry"
+      },
+      {
+        "name": "dynamics_slicebyplane",
+        "label": "Slice"
+      },
+      {
+        "name": "dynamics_slicealongline",
+        "label": "Slice Along Line"
+      },
+      {
+        "name": "dynamics_distribute_fluid",
+        "label": "Distribute Particle Fluid"
+      }
+    ]
+  },
+  {
+    "name": "groomtools",
+    "label": "Hair Utils",
+    "tools": [
+      {
+        "name": "geometry_groom_capybarasimdeform",
+        "label": "Capybara Sim and Deform"
+      },
+      {
+        "name": "object_groom_addfur",
+        "label": "Add Fur"
+      },
+      {
+        "name": "object_groom_guidegroomempty",
+        "label": "Create Empty Guide Groom"
+      },
+      {
+        "name": "object_groom_guidegroom",
+        "label": "Create Guides"
+      },
+      {
+        "name": "object_groom_groommerge",
+        "label": "Merge Groom Objects"
+      },
+      {
+        "name": "object_groom_animateguides",
+        "label": "Deform Guides"
+      },
+      {
+        "name": "object_groom_simguides",
+        "label": "Simulate Guides"
+      },
+      {
+        "name": "object_groom_hairgen",
+        "label": "Generate Hair"
+      },
+      {
+        "name": "object_groom_isolateparts",
+        "label": "Isolate Groom Parts"
+      },
+      {
+        "name": "object_groom_togglehairdisplay",
+        "label": "Toggle Display"
+      },
+      {
+        "name": "object_groom_haircardgen",
+        "label": "Generate Hair Cards"
+      },
+      {
+        "name": "object_groom_haircardtexture",
+        "label": "Hair Card Texture"
+      }
+    ]
+  },
+  {
+    "name": "guidemodify",
+    "label": "Guide Process",
+    "tools": [
+      {
+        "name": "sop_groom_guideinit",
+        "label": "Initialize Guides"
+      },
+      {
+        "name": "sop_groom_curveadvect",
+        "label": "Curve Advect"
+      },
+      {
+        "name": "object_groom",
+        "label": "Groom"
+      },
+      {
+        "name": "sop_groom_reguide",
+        "label": "Reguide"
+      },
+      {
+        "name": "sop_groom_guideprocess_setdir",
+        "label": "Set Guide Direction"
+      },
+      {
+        "name": "sop_groom_guideprocess_length",
+        "label": "Set Guide Length"
+      },
+      {
+        "name": "sop_groom_guideprocess_lift",
+        "label": "Lift Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_straighten",
+        "label": "Straighten Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_smooth",
+        "label": "Smooth Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_frizz",
+        "label": "Frizz Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_bend",
+        "label": "Bend Guides"
+      },
+      {
+        "name": "sop_groom_hairclump",
+        "label": "Clump Guides"
+      },
+      {
+        "name": "sop_groom_drawpartingline",
+        "label": "Part Guides"
+      },
+      {
+        "name": "sop_groom_whitehair",
+        "label": "Add White Hairs"
+      }
+    ]
+  },
+  {
+    "name": "hairtools",
+    "label": "Hair Tools",
+    "tools": [
+      {
+        "name": "object_groom_addfur",
+        "label": "Add Fur"
+      },
+      {
+        "name": "object_groom_guidegroomempty",
+        "label": "Create Empty Guide Groom"
+      },
+      {
+        "name": "object_groom_guidegroom",
+        "label": "Create Guides"
+      },
+      {
+        "name": "object_groom_groommerge",
+        "label": "Merge Groom Objects"
+      },
+      {
+        "name": "object_groom_animateguides",
+        "label": "Deform Guides"
+      },
+      {
+        "name": "object_groom_simguides",
+        "label": "Simulate Guides"
+      },
+      {
+        "name": "object_groom_hairgen",
+        "label": "Generate Hair"
+      },
+      {
+        "name": "object_groom_isolateparts",
+        "label": "Isolate Groom Parts"
+      },
+      {
+        "name": "object_groom",
+        "label": "Groom"
+      },
+      {
+        "name": "sop_groom_reguide",
+        "label": "Reguide"
+      },
+      {
+        "name": "sop_groom_guideinit",
+        "label": "Initialize Guides"
+      },
+      {
+        "name": "sop_groom_curveadvect",
+        "label": "Curve Advect"
+      },
+      {
+        "name": "sop_groom_guideprocess_setdir",
+        "label": "Set Guide Direction"
+      },
+      {
+        "name": "sop_groom_guideprocess_length",
+        "label": "Set Guide Length"
+      },
+      {
+        "name": "sop_groom_guideprocess_lift",
+        "label": "Lift Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_straighten",
+        "label": "Straighten Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_smooth",
+        "label": "Smooth Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_frizz",
+        "label": "Frizz Guides"
+      },
+      {
+        "name": "sop_groom_guideprocess_bend",
+        "label": "Bend Guides"
+      },
+      {
+        "name": "sop_groom_hairclump",
+        "label": "Clump Guides"
+      },
+      {
+        "name": "sop_groom_drawpartingline",
+        "label": "Part Guides"
+      },
+      {
+        "name": "sop_groom_whitehair",
+        "label": "Add White Hairs"
+      }
+    ]
+  },
+  {
+    "name": "houdiniengine",
+    "label": "Houdini Engine",
+    "tools": [
+      {
+        "name": "hengine_plugin_installer",
+        "label": "Plugin Installer"
+      },
+      {
+        "name": "sop_collision_geo",
+        "label": "Game Engine Collision"
+      },
+      {
+        "name": "sop_unity_material",
+        "label": "Unity Material"
+      },
+      {
+        "name": "sop_unreal_material",
+        "label": "Unreal Material"
+      },
+      {
+        "name": "sop_maya_mayahardedge_to_attribute",
+        "label": "Convert Maya Hard Edge to Attribute"
+      },
+      {
+        "name": "sop_maya_mayahardedge_to_group",
+        "label": "Convert Maya Hard Edge to Group"
+      }
+    ]
+  },
+  {
+    "name": "kinefx",
+    "label": "KineFX",
+    "tools": []
+  },
+  {
+    "name": "labs_toolset",
+    "label": "SideFX Labs",
+    "tools": [
+      {
+        "name": "update_toolset",
+        "label": "Update Toolset"
+      }
+    ]
+  },
+  {
+    "name": "lights_and_cameras",
+    "label": "Lights and Cameras",
+    "tools": [
+      {
+        "name": "object_cam",
+        "label": "Camera"
+      },
+      {
+        "name": "object_pointlight",
+        "label": "Point Light"
+      },
+      {
+        "name": "object_spotlight",
+        "label": "Spot Light"
+      },
+      {
+        "name": "object_arealight",
+        "label": "Area Light"
+      },
+      {
+        "name": "obj_geolight",
+        "label": "Geometry Light"
+      },
+      {
+        "name": "obj_volumelight",
+        "label": "Volume Light"
+      },
+      {
+        "name": "object_distantlight",
+        "label": "Distant Light"
+      },
+      {
+        "name": "object_envlight",
+        "label": "Environment Light"
+      },
+      {
+        "name": "obj_skylight",
+        "label": "Sky Light"
+      },
+      {
+        "name": "obj_gilight",
+        "label": "GI Light"
+      },
+      {
+        "name": "obj_causticlight",
+        "label": "Caustic Light"
+      },
+      {
+        "name": "obj_portallight",
+        "label": "Portal Light"
+      },
+      {
+        "name": "object_ambient",
+        "label": "Ambient Light"
+      },
+      {
+        "name": "object_stereocamrig",
+        "label": "Stereo Camera"
+      },
+      {
+        "name": "object_vrcam",
+        "label": "VR Camera"
+      },
+      {
+        "name": "object_switcher",
+        "label": "Switcher"
+      },
+      {
+        "name": "obj_gamepadcamera",
+        "label": "Gamepad Camera"
+      }
+    ]
+  },
+  {
+    "name": "liquid_dynamics",
+    "label": "Particle Fluids",
+    "tools": [
+      {
+        "name": "dynamics_makeflip",
+        "label": "FLIP Fluid from Object"
+      },
+      {
+        "name": "dynamics_flipbox",
+        "label": "FLIP Tank"
+      },
+      {
+        "name": "dynamics_particlefluidemitter",
+        "label": "Emit Particle Fluid"
+      },
+      {
+        "name": "dynamics_makesink",
+        "label": "Sink from Objects"
+      },
+      {
+        "name": "dynamics_sculptedparticlefluid",
+        "label": "Sculpted Particle Fluid"
+      },
+      {
+        "name": "dynamics_crownsplashfluid",
+        "label": "Crown Splash Particle Fluid"
+      },
+      {
+        "name": "dynamics_dripparticlefluid",
+        "label": "Drip Particle Fluid"
+      },
+      {
+        "name": "dynamics_suctionfluid",
+        "label": "Suction Fluid"
+      },
+      {
+        "name": "dynamics_popcondensation",
+        "label": "Condensation"
+      },
+      {
+        "name": "dynamics_makeviscous",
+        "label": "Make Viscous"
+      },
+      {
+        "name": "dynamics_whitewater",
+        "label": "Whitewater"
+      },
+      {
+        "name": "dynamics_slicebyplane",
+        "label": "Slice"
+      },
+      {
+        "name": "dynamics_slicealongline",
+        "label": "Slice Along Line"
+      },
+      {
+        "name": "dynamics_distribute_fluid",
+        "label": "Distribute Particle Fluid"
+      }
+    ]
+  },
+  {
+    "name": "lop_lights_and_cameras",
+    "label": "LOP Lights and Cameras",
+    "tools": [
+      {
+        "name": "object_cam",
+        "label": "Camera"
+      },
+      {
+        "name": "object_pointlight",
+        "label": "Point Light"
+      },
+      {
+        "name": "object_spotlight",
+        "label": "Spot Light"
+      },
+      {
+        "name": "object_arealight",
+        "label": "Area Light"
+      },
+      {
+        "name": "object_distantlight",
+        "label": "Distant Light"
+      },
+      {
+        "name": "object_envlight",
+        "label": "Environment Light"
+      },
+      {
+        "name": "lop_karma_physical_sky",
+        "label": "Karma Physical Sky Light"
+      }
+    ]
+  },
+  {
+    "name": "lop_oceans",
+    "label": "Oceans",
+    "tools": [
+      {
+        "name": "geometry_smallocean",
+        "label": "Small Ocean"
+      },
+      {
+        "name": "geometry_largeocean",
+        "label": "Large Ocean"
+      }
+    ]
+  },
+  {
+    "name": "lop_render_test_scenes",
+    "label": "Render Test Scenes",
+    "tools": [
+      {
+        "name": "shelftool::sidefx::recipe::lop::testscene_cornellbox",
+        "label": "Cornell Box"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::lop::testscene_materiallookdev",
+        "label": "Material Lookdev"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::lop::testscene_noisesampler",
+        "label": "Noise Sampler"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::lop::testscene_standardshaderball",
+        "label": "Standard Shader Ball"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::lop::testscene_veachmisplanks",
+        "label": "Veach Mis Planks"
+      }
+    ]
+  },
+  {
+    "name": "melting_dynamics",
+    "label": "Viscous Fluids",
+    "tools": [
+      {
+        "name": "dynamics_meltobject",
+        "label": "Melt Object"
+      },
+      {
+        "name": "dynamics_objecttolava",
+        "label": "Lava From Object"
+      },
+      {
+        "name": "dynamics_emitlava",
+        "label": "Emit Lava"
+      },
+      {
+        "name": "dynamics_heatfromobject",
+        "label": "Heat Within Object"
+      },
+      {
+        "name": "dynamics_coolfromobject",
+        "label": "Cool Within Object"
+      },
+      {
+        "name": "dynamics_emitsteamoncollision",
+        "label": "Emit Steam On Collision"
+      },
+      {
+        "name": "dynamics_makesink",
+        "label": "Sink from Objects"
+      },
+      {
+        "name": "dynamics_slicebyplane",
+        "label": "Slice"
+      },
+      {
+        "name": "dynamics_slicealongline",
+        "label": "Slice Along Line"
+      },
+      {
+        "name": "dynamics_distribute_fluid",
+        "label": "Distribute Particle Fluid"
+      }
+    ]
+  },
+  {
+    "name": "model",
+    "label": "Model",
+    "tools": [
+      {
+        "name": "sop_revolve::2.0",
+        "label": "Revolve"
+      },
+      {
+        "name": "geometry_loft",
+        "label": "Loft"
+      },
+      {
+        "name": "sop_skin",
+        "label": "Skin"
+      },
+      {
+        "name": "sop_rails",
+        "label": "Rails"
+      },
+      {
+        "name": "sop_sweep::2.0",
+        "label": "Sweep"
+      },
+      {
+        "name": "sop_creep",
+        "label": "Creep"
+      },
+      {
+        "name": "sop_ray",
+        "label": "Ray"
+      },
+      {
+        "name": "sop_boolean::2.0",
+        "label": "Boolean"
+      },
+      {
+        "name": "geometry_voronoifracture",
+        "label": "Shatter"
+      },
+      {
+        "name": "sop_topobuild",
+        "label": "TopoBuild"
+      },
+      {
+        "name": "sop_carve",
+        "label": "Carve"
+      },
+      {
+        "name": "sop_convert",
+        "label": "Convert"
+      },
+      {
+        "name": "sop_refine",
+        "label": "Refine"
+      },
+      {
+        "name": "sop_reverse",
+        "label": "Reverse"
+      },
+      {
+        "name": "sop_sculpt::2.0",
+        "label": "Sculpt"
+      },
+      {
+        "name": "sop_scatter::2.0",
+        "label": "Scatter"
+      },
+      {
+        "name": "sop_clusterpoints",
+        "label": "Cluster Points"
+      },
+      {
+        "name": "geo_group",
+        "label": "Group"
+      },
+      {
+        "name": "sop_edit",
+        "label": "Edit"
+      },
+      {
+        "name": "sop_visibility",
+        "label": "Visibility"
+      }
+    ]
+  },
+  {
+    "name": "modify",
+    "label": "Modify",
+    "tools": [
+      {
+        "name": "object_combine",
+        "label": "Combine"
+      },
+      {
+        "name": "geometry_extract",
+        "label": "Extract"
+      },
+      {
+        "name": "geometry_mirror",
+        "label": "Mirror"
+      },
+      {
+        "name": "geometry_copy",
+        "label": "Copy to Points"
+      },
+      {
+        "name": "geometry_duplicate",
+        "label": "Duplicate"
+      },
+      {
+        "name": "tool_align",
+        "label": "Align Components"
+      },
+      {
+        "name": "object_matchtransform",
+        "label": "Match Transform"
+      },
+      {
+        "name": "object_centerpivot",
+        "label": "Move Pivot to Center"
+      },
+      {
+        "name": "object_movetopivot",
+        "label": "Move Center to Pivot"
+      },
+      {
+        "name": "object_freeze",
+        "label": "Freeze"
+      },
+      {
+        "name": "object_bakeanimation",
+        "label": "Bake Animation"
+      },
+      {
+        "name": "generic_delete",
+        "label": "Delete"
+      },
+      {
+        "name": "generic_hide",
+        "label": "Hide"
+      },
+      {
+        "name": "object_parent",
+        "label": "Parent"
+      }
+    ]
+  },
+  {
+    "name": "mpm",
+    "label": "MPM",
+    "tools": [
+      {
+        "name": "shelftool::sidefx::recipe::mpm::configure",
+        "label": "Configure"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::jelloparty",
+        "label": "Jello Party"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::landslide",
+        "label": "Landslide"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::metaltearing",
+        "label": "Metal Tearing"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::pancakes",
+        "label": "Pancakes"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::rollingsnowball",
+        "label": "Rolling Snowball"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::sandinstances",
+        "label": "Sand Instances"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::softbody",
+        "label": "Softbody"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::spinning_tire",
+        "label": "Spinning Tire"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::mpm::waterglass",
+        "label": "Water Glass"
+      }
+    ]
+  },
+  {
+    "name": "muscles",
+    "label": "Legacy Muscles (Deprecated)",
+    "tools": [
+      {
+        "name": "object_riggedmuscle",
+        "label": "Muscle"
+      },
+      {
+        "name": "object_strokemuscle",
+        "label": "Stroke Muscle"
+      },
+      {
+        "name": "object_musclerig",
+        "label": "Muscle Rig"
+      },
+      {
+        "name": "object_musclepin",
+        "label": "Muscle Pin"
+      },
+      {
+        "name": "object_frankenmuscle",
+        "label": "Franken Muscle"
+      },
+      {
+        "name": "geometry_mirror",
+        "label": "Mirror"
+      },
+      {
+        "name": "object_attachmuscles",
+        "label": "Attach To Bones"
+      },
+      {
+        "name": "object_detachmuscles",
+        "label": "Detach From Bones"
+      },
+      {
+        "name": "object_setmuscleid",
+        "label": "Set Muscle ID"
+      },
+      {
+        "name": "object_muscledisplace",
+        "label": "Muscle Displace"
+      },
+      {
+        "name": "object_paintmusclemask",
+        "label": "Paint Muscle Mask"
+      },
+      {
+        "name": "object_mirrormusclecapture",
+        "label": "Mirror Muscle Mask"
+      },
+      {
+        "name": "object_tissuesimulate",
+        "label": "Tissue System"
+      }
+    ]
+  },
+  {
+    "name": "ocean",
+    "label": "Oceans",
+    "tools": [
+      {
+        "name": "geometry_smallocean",
+        "label": "Small Ocean"
+      },
+      {
+        "name": "geometry_largeocean",
+        "label": "Large Ocean"
+      },
+      {
+        "name": "dynamics_guidedoceanlayer",
+        "label": "Guided Ocean Layer"
+      },
+      {
+        "name": "dynamics_wavetank",
+        "label": "Wave Tank"
+      },
+      {
+        "name": "dynamics_beachtank",
+        "label": "Beach Tank"
+      },
+      {
+        "name": "dynamics_flattank",
+        "label": "Flat Tank"
+      },
+      {
+        "name": "dynamics_oceanflattank",
+        "label": "Ocean Flat Tank"
+      },
+      {
+        "name": "dynamics_whitewater",
+        "label": "Whitewater"
+      }
+    ]
+  },
+  {
+    "name": "particles",
+    "label": "Particles",
+    "tools": [
+      {
+        "name": "dynamics_popfireworks",
+        "label": "Fireworks"
+      },
+      {
+        "name": "dynamics_poplocation",
+        "label": "Location Particle Emitter"
+      },
+      {
+        "name": "dynamics_popsource",
+        "label": "Source Particle Emitter"
+      },
+      {
+        "name": "dynamics_popreplicate",
+        "label": "Replicate Particles"
+      },
+      {
+        "name": "dynamics_popaxisforce",
+        "label": "Axis Force Particles"
+      },
+      {
+        "name": "dynamics_popattracttopoints",
+        "label": "Point Attract Particles"
+      },
+      {
+        "name": "dynamics_popattracttocurvepoint",
+        "label": "Curve Attract Particles"
+      },
+      {
+        "name": "dynamics_popcurveforce",
+        "label": "Curve Force Particles"
+      },
+      {
+        "name": "dynamics_popmetaballforce",
+        "label": "Metaball Force Particles"
+      },
+      {
+        "name": "dynamics_popcolor",
+        "label": "Color Particles"
+      },
+      {
+        "name": "dynamics_popdrag",
+        "label": "Drag Particles"
+      },
+      {
+        "name": "dynamics_popfan",
+        "label": "Fan Particles"
+      },
+      {
+        "name": "dynamics_popflock",
+        "label": "Flock Particles"
+      },
+      {
+        "name": "dynamics_popforce",
+        "label": "Force Particles"
+      },
+      {
+        "name": "dynamics_popwind",
+        "label": "Wind on Particles"
+      },
+      {
+        "name": "dynamics_popinteract",
+        "label": "Interact Particles"
+      },
+      {
+        "name": "dynamics_popcollision",
+        "label": "Collision Detect Particles"
+      },
+      {
+        "name": "dynamics_popinstance",
+        "label": "Instance Geometry on Particles"
+      },
+      {
+        "name": "dynamics_popsprite",
+        "label": "Sprite Particles"
+      },
+      {
+        "name": "dynamics_popvortexfilaments",
+        "label": "Vortex Filaments"
+      }
+    ]
+  },
+  {
+    "name": "playback",
+    "label": "Playback",
+    "tools": [
+      {
+        "name": "anim_flipbook",
+        "label": "Flipbook"
+      },
+      {
+        "name": "anim_play",
+        "label": "Play"
+      },
+      {
+        "name": "anim_backward",
+        "label": "Backward"
+      },
+      {
+        "name": "anim_stop",
+        "label": "Stop"
+      },
+      {
+        "name": "anim_nextkey",
+        "label": "Next Key"
+      },
+      {
+        "name": "anim_prevkey",
+        "label": "Prev Key"
+      },
+      {
+        "name": "anim_nextframe",
+        "label": "Next Frame"
+      },
+      {
+        "name": "anim_prevframe",
+        "label": "Prev Frame"
+      },
+      {
+        "name": "anim_firstframe",
+        "label": "First Frame"
+      },
+      {
+        "name": "anim_lastframe",
+        "label": "Last Frame"
+      }
+    ]
+  },
+  {
+    "name": "polygon",
+    "label": "Polygon",
+    "tools": [
+      {
+        "name": "sop_topobuild",
+        "label": "TopoBuild"
+      },
+      {
+        "name": "sop_polydraw",
+        "label": "PolyDraw"
+      },
+      {
+        "name": "sop_curve::2.0_polygon",
+        "label": "Curve Polygon"
+      },
+      {
+        "name": "sop_polyextrude::2.0",
+        "label": "PolyExtrude"
+      },
+      {
+        "name": "sop_polybevel::3.0",
+        "label": "PolyBevel"
+      },
+      {
+        "name": "sop_polybridge",
+        "label": "PolyBridge"
+      },
+      {
+        "name": "sop_polysplit::2.0",
+        "label": "PolySplit"
+      },
+      {
+        "name": "sop_edgeloop",
+        "label": "Edge Loop"
+      },
+      {
+        "name": "sop_polyreduce::2.0",
+        "label": "PolyReduce"
+      },
+      {
+        "name": "sop_polyfill",
+        "label": "PolyFill"
+      },
+      {
+        "name": "sop_polyexpand2d",
+        "label": "PolyExpand2D"
+      },
+      {
+        "name": "sop_edgecollapse",
+        "label": "Edge Collapse"
+      },
+      {
+        "name": "sop_edgecusp",
+        "label": "Edge Cusp"
+      },
+      {
+        "name": "sop_edgeflip",
+        "label": "Edge Flip"
+      },
+      {
+        "name": "sop_edgedivide",
+        "label": "Edge Divide"
+      },
+      {
+        "name": "sop_dissolve::2.0",
+        "label": "Dissolve"
+      },
+      {
+        "name": "geometry_knife",
+        "label": "Knife"
+      },
+      {
+        "name": "sop_clip::2.0",
+        "label": "Clip"
+      },
+      {
+        "name": "sop_subdivide",
+        "label": "Subdivide"
+      },
+      {
+        "name": "sop_facet",
+        "label": "Facet"
+      },
+      {
+        "name": "sop_pointweld",
+        "label": "Point Weld"
+      },
+      {
+        "name": "sop_fuse::2.0",
+        "label": "Fuse"
+      },
+      {
+        "name": "geometry_snap",
+        "label": "Snap"
+      },
+      {
+        "name": "sop_smooth::2.0",
+        "label": "Smooth"
+      },
+      {
+        "name": "geometry_curvefromedges",
+        "label": "Curve from Edges"
+      },
+      {
+        "name": "sop_polyhinge",
+        "label": "PolyHinge"
+      }
+    ]
+  },
+  {
+    "name": "pyro_dynamics",
+    "label": "Legacy Pyro FX",
+    "tools": [
+      {
+        "name": "pyro_burn",
+        "label": "Flames"
+      },
+      {
+        "name": "pyro_explosion",
+        "label": "Explosion"
+      },
+      {
+        "name": "pyro_fireball",
+        "label": "Fireball"
+      },
+      {
+        "name": "pyro_billowysmoke",
+        "label": "Billowy Smoke"
+      },
+      {
+        "name": "pyro_coloredsmoke",
+        "label": "Colored Smoke"
+      },
+      {
+        "name": "pyro_makecolored",
+        "label": "Add Color"
+      },
+      {
+        "name": "pyro_wispy",
+        "label": "Wispy Smoke"
+      },
+      {
+        "name": "pyro_candleflame",
+        "label": "Candle"
+      },
+      {
+        "name": "pyro_smokelessflame",
+        "label": "Smokeless Flame"
+      },
+      {
+        "name": "pyro_dryice",
+        "label": "Dry Ice"
+      },
+      {
+        "name": "pyro_volcano",
+        "label": "Volcano"
+      },
+      {
+        "name": "pyro_smoketrail",
+        "label": "Smoke Trail"
+      },
+      {
+        "name": "pyro_clusteredsmoke",
+        "label": "Smoke Cluster"
+      },
+      {
+        "name": "pyro_clusteredfire",
+        "label": "Pyro Cluster"
+      }
+    ]
+  },
+  {
+    "name": "rbd_dynamics",
+    "label": "Rigid Bodies",
+    "tools": [
+      {
+        "name": "dynamics_rbdobjects",
+        "label": "RBD Objects"
+      },
+      {
+        "name": "dynamics_rbdheroobject",
+        "label": "RBD Hero Object"
+      },
+      {
+        "name": "dynamics_rbdglueobject",
+        "label": "RBD Glued Objects"
+      },
+      {
+        "name": "dynamics_rbdpointobject",
+        "label": "RBD Instanced Objects"
+      },
+      {
+        "name": "dynamics_rbdragdollobject",
+        "label": "RBD Ragdolls"
+      },
+      {
+        "name": "dynamics_rbdgrains",
+        "label": "RBD Grains"
+      },
+      {
+        "name": "dynamics_rbdconvexproxy",
+        "label": "RBD Convex Proxy"
+      },
+      {
+        "name": "dynamics_rbdsphereproxy",
+        "label": "RBD Sphere Proxy"
+      },
+      {
+        "name": "dynamics_rbdfracturedobject",
+        "label": "RBD Fractured Object"
+      },
+      {
+        "name": "dynamics_makebreakable",
+        "label": "Make Breakable"
+      },
+      {
+        "name": "dynamics_impactanalysis",
+        "label": "RBD Impacts"
+      },
+      {
+        "name": "dynamics_debris",
+        "label": "Debris"
+      },
+      {
+        "name": "dynamics_autofreeze",
+        "label": "RBD Auto Freeze"
+      },
+      {
+        "name": "dop_rbdpinconstraint",
+        "label": "RBD Pin Constraint"
+      },
+      {
+        "name": "dop_rbdconetwistconstraint",
+        "label": "RBD Cone Twist Constraint"
+      },
+      {
+        "name": "dop_rbdsliderconstraint",
+        "label": "RBD Slider Constraint"
+      },
+      {
+        "name": "dop_rbdhingeconstraint",
+        "label": "RBD Hinge Constraint"
+      },
+      {
+        "name": "dop_rbdspringconstraint",
+        "label": "RBD Spring Constraint"
+      },
+      {
+        "name": "dop_rbdangularconstraint",
+        "label": "RBD Angular Constraint"
+      },
+      {
+        "name": "dop_rbdangularspringconstraint",
+        "label": "RBD Angular Spring Constraint"
+      },
+      {
+        "name": "dop_parentconstraint",
+        "label": "RBD Parent Constraint"
+      }
+    ]
+  },
+  {
+    "name": "rigging",
+    "label": "Rigging",
+    "tools": [
+      {
+        "name": "object_bones",
+        "label": "Bones"
+      },
+      {
+        "name": "object_bonesfromcurve",
+        "label": "Bones from Curve"
+      },
+      {
+        "name": "object_pose",
+        "label": "Pose"
+      },
+      {
+        "name": "rigging_ikfromobjects",
+        "label": "IK from Objects"
+      },
+      {
+        "name": "rigging_ikfrombones",
+        "label": "IK from Bones"
+      },
+      {
+        "name": "object_capturegeometry",
+        "label": "Capture Geometry"
+      },
+      {
+        "name": "object_editcaptureregion",
+        "label": "Edit Capture Regions"
+      },
+      {
+        "name": "object_editcaptureweight",
+        "label": "Edit Capture Weights"
+      },
+      {
+        "name": "object_editcaptureblend",
+        "label": "Edit Capture Blends"
+      },
+      {
+        "name": "object_mirrorcapture",
+        "label": "Mirror Capture Weights"
+      },
+      {
+        "name": "object_paintcapturelayer",
+        "label": "Paint Capture Layer"
+      },
+      {
+        "name": "object_aligncapturepose",
+        "label": "Align Capture Pose"
+      },
+      {
+        "name": "sop_deltamush::2.0",
+        "label": "Delta Mush"
+      },
+      {
+        "name": "sop_comb",
+        "label": "Comb"
+      }
+    ]
+  },
+  {
+    "name": "simplefx",
+    "label": "Simple FX",
+    "tools": [
+      {
+        "name": "geometry_vellumsimplecloth",
+        "label": "Simple Cloth"
+      },
+      {
+        "name": "geometry_vellumsimplesoftbody",
+        "label": "Simple Softbody"
+      },
+      {
+        "name": "geometry_rbdsimplefracture",
+        "label": "Simple Fracture"
+      },
+      {
+        "name": "geometry_rbdsimpleguided",
+        "label": "Simple Guided RBDs"
+      },
+      {
+        "name": "geometry_muzzleflash",
+        "label": "Simple Muzzle Flash"
+      },
+      {
+        "name": "geometry_pyrosimplebillowysmoke",
+        "label": "Simple Billowy Smoke"
+      },
+      {
+        "name": "geometry_spyro_gpuburst",
+        "label": "Simple GPU Ground Explosion"
+      },
+      {
+        "name": "geometry_spyro_gputorch",
+        "label": "Simple GPU Torch"
+      },
+      {
+        "name": "geometry_pyrosimplefireball",
+        "label": "Simple Fireball"
+      },
+      {
+        "name": "geometry_spyro_airexplosion",
+        "label": "Simple Aerial Explosion"
+      },
+      {
+        "name": "geometry_spyro_groundexplosion",
+        "label": "Simple Ground Explosion"
+      },
+      {
+        "name": "geometry_spyro_shockwave",
+        "label": "Simple Shockwave"
+      },
+      {
+        "name": "geometry_spyro_campfire",
+        "label": "Simple Bonfire"
+      }
+    ]
+  },
+  {
+    "name": "solid_dynamics",
+    "label": "FEM",
+    "tools": [
+      {
+        "name": "dynamics_femsolidobject",
+        "label": "Solid Object"
+      },
+      {
+        "name": "dynamics_femhybridobject",
+        "label": "Hybrid Object"
+      },
+      {
+        "name": "dop_solidcollider",
+        "label": "Surface Collider"
+      },
+      {
+        "name": "dop_volumecollider",
+        "label": "Volume Collider"
+      },
+      {
+        "name": "dynamics_femtargetconstraint",
+        "label": "Constrain Points to Target Animation"
+      },
+      {
+        "name": "dynamics_femattachconstraint",
+        "label": "Attach Points to Target Object"
+      },
+      {
+        "name": "dynamics_femslideconstraint",
+        "label": "Slide Points against Target Object"
+      },
+      {
+        "name": "dynamics_femregionconstraint",
+        "label": "Constrain Region"
+      },
+      {
+        "name": "dynamics_femfusepointpairs",
+        "label": "Fuse Point Pairs"
+      }
+    ]
+  },
+  {
+    "name": "sop_particle_dynamics",
+    "label": "SOP Particle FX",
+    "tools": [
+      {
+        "name": "shelftool::sidefx::recipe::pop::fireportal",
+        "label": "Fire Portal"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::fireworks",
+        "label": "Fireworks"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::fireworks_brocade",
+        "label": "Firework Brocade"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::fireworks_chrysanthemum",
+        "label": "Firework Chrysanthemum"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::fireworks_peony",
+        "label": "Firework Peony"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::magictraila",
+        "label": "Magic Trail A"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::magictrailb",
+        "label": "Magic Trail B"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pop::magictrailc",
+        "label": "Magic Trail c"
+      }
+    ]
+  },
+  {
+    "name": "sop_pyro_dynamics",
+    "label": "SOP Pyro FX",
+    "tools": [
+      {
+        "name": "shelftool::sidefx::recipe::pyro::aerialbarrage",
+        "label": "Aerial Barrage"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::muzzleflash",
+        "label": "Muzzle Flash"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::aerialexplosion",
+        "label": "Aerial Explosion"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::thrusterexhaust",
+        "label": "Thruster Exhaust"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::aerialgroundbarrage",
+        "label": "Aerial Ground Barrage"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::billowysmoke",
+        "label": "Billowy Smoke"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::wispysmokea",
+        "label": "Wispy Smoke A"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::wispysmokeb",
+        "label": "Wispy Smoke B"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::bullethits",
+        "label": "Bullet Hits"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::debrisdust",
+        "label": "Pyro Debris Dust"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::candleflame",
+        "label": "Candle Flame"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::dryice",
+        "label": "Dry Ice"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::smokelessflame",
+        "label": "Smokeless Flame"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::dustfireball",
+        "label": "Dust Fireball"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::fireball",
+        "label": "Fireball"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::spreadingfire",
+        "label": "Spreading Fire"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::stylizedfire",
+        "label": "Stylized Fire"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::fireballwithtrails",
+        "label": "Fireball with Trails"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::gputorch",
+        "label": "GPU Torch"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::synchronizedgroundshockwaves",
+        "label": "Synchronized Ground Shockwaves"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::gpugroundexplosion",
+        "label": "GPU Ground Explosion"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::groundexplosiona",
+        "label": "Ground Explosion A"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::staggeredgroundshockwaves",
+        "label": "Staggered Ground Shockwaves"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::groundexplosionb",
+        "label": "Ground Explosion B"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::groundshockwave",
+        "label": "Ground Shockwave"
+      },
+      {
+        "name": "shelftool::sidefx::recipe::pyro::shockwavefireball",
+        "label": "Shockwave Fireball"
+      }
+    ]
+  },
+  {
+    "name": "sparse_pyro_dynamics",
+    "label": "DOP Pyro FX",
+    "tools": [
+      {
+        "name": "spyro_billowysmoke",
+        "label": "Sparse Billowy Smoke"
+      },
+      {
+        "name": "spyro_fireball",
+        "label": "Sparse Fireball"
+      },
+      {
+        "name": "spyro_airexplosion",
+        "label": "Aerial Explosion"
+      },
+      {
+        "name": "spyro_groundexplosion",
+        "label": "Ground Explosion"
+      },
+      {
+        "name": "spyro_shockwave",
+        "label": "Shockwave"
+      },
+      {
+        "name": "spyro_campfire",
+        "label": "Bonfire"
+      },
+      {
+        "name": "spyro_firespread",
+        "label": "Spreading Fire"
+      }
+    ]
+  },
+  {
+    "name": "tdtools",
+    "label": "TD Tools",
+    "tools": [
+      {
+        "name": "sop_add",
+        "label": "Add"
+      },
+      {
+        "name": "sop_attribwrangle",
+        "label": "Attribute Wrangle"
+      },
+      {
+        "name": "sop_attribute",
+        "label": "Attribute Rename"
+      },
+      {
+        "name": "sop_attribcreate::2.0",
+        "label": "Attribute Create"
+      },
+      {
+        "name": "sop_attribpaint",
+        "label": "Attribute Paint"
+      },
+      {
+        "name": "sop_attribmirror",
+        "label": "Attribute Mirror"
+      },
+      {
+        "name": "sop_attribpromote",
+        "label": "Attribute Promote"
+      },
+      {
+        "name": "sop_attribtransfer",
+        "label": "Attribute Transfer"
+      },
+      {
+        "name": "sop_connectivity",
+        "label": "Connectivity"
+      },
+      {
+        "name": "sop_object_merge",
+        "label": "Object Merge"
+      },
+      {
+        "name": "sop_measure::2.0",
+        "label": "Measure"
+      },
+      {
+        "name": "sop_cache",
+        "label": "Cache"
+      },
+      {
+        "name": "sop_trail",
+        "label": "Trail"
+      }
+    ]
+  },
+  {
+    "name": "terrainfx",
+    "label": "Terrain FX",
+    "tools": [
+      {
+        "name": "terrain_hills",
+        "label": "Terrain: Hills"
+      },
+      {
+        "name": "terrain_mountain",
+        "label": "Terrain: Mountain"
+      },
+      {
+        "name": "terrain_valley",
+        "label": "Terrain: Valley"
+      },
+      {
+        "name": "terrain_moonscape",
+        "label": "Terrain: Moonscape"
+      },
+      {
+        "name": "terrain_islands",
+        "label": "Terrain: Islands"
+      },
+      {
+        "name": "terrain_canyon",
+        "label": "Terrain: Canyon"
+      },
+      {
+        "name": "terrain_dunes",
+        "label": "Terrain: Dunes"
+      }
+    ]
+  },
+  {
+    "name": "terrainlayers",
+    "label": "Terrain Layers",
+    "tools": [
+      {
+        "name": "sop_heightfield_copylayer",
+        "label": "HeightField Copy Layer"
+      },
+      {
+        "name": "sop_heightfield_isolatelayer",
+        "label": "HeightField Isolate Layer"
+      },
+      {
+        "name": "sop_heightfield_layer",
+        "label": "HeightField Layer"
+      },
+      {
+        "name": "sop_heightfield_layerclear",
+        "label": "HeightField Layer Clear"
+      },
+      {
+        "name": "sop_heightfield_layerproperty",
+        "label": "HeightField Layer Properties"
+      }
+    ]
+  },
+  {
+    "name": "terrainmasks",
+    "label": "Terrain Masks",
+    "tools": [
+      {
+        "name": "model_heightfield_masknoise",
+        "label": "HeightField Mask Noise"
+      },
+      {
+        "name": "sop_heightfield_drawmask",
+        "label": "HeightField Draw Mask"
+      },
+      {
+        "name": "sop_heightfield_paint",
+        "label": "HeightField Paint"
+      },
+      {
+        "name": "model_heightfield_maskblur",
+        "label": "HeightField Mask Blur"
+      },
+      {
+        "name": "model_heightfield_maskexpand",
+        "label": "HeightField Mask Expand"
+      },
+      {
+        "name": "model_heightfield_maskshrink",
+        "label": "HeightField Mask Shrink"
+      },
+      {
+        "name": "sop_heightfield_maskbyfeature",
+        "label": "HeightField Mask by Feature"
+      },
+      {
+        "name": "sop_heightfield_maskbyobject",
+        "label": "HeightField Mask by Geometry"
+      },
+      {
+        "name": "model_heightmaskclear",
+        "label": "HeightField Mask Clear"
+      }
+    ]
+  },
+  {
+    "name": "terrainoutput",
+    "label": "Terrain Output",
+    "tools": [
+      {
+        "name": "sop_heightfield_quickshade",
+        "label": "HeightField Quick Shade"
+      },
+      {
+        "name": "sop_heightfield_tilesplit",
+        "label": "HeightField Tile Split"
+      },
+      {
+        "name": "model_heightfieldtilesplice",
+        "label": "HeightField Tile Splice"
+      },
+      {
+        "name": "sop_convertheightfield",
+        "label": "Convert HeightField"
+      },
+      {
+        "name": "sop_heightfield_output",
+        "label": "HeightField Output"
+      }
+    ]
+  },
+  {
+    "name": "terraintools",
+    "label": "Terrain Tools",
+    "tools": [
+      {
+        "name": "sop_heightfield",
+        "label": "HeightField"
+      },
+      {
+        "name": "sop_heightfield_noise",
+        "label": "HeightField Noise"
+      },
+      {
+        "name": "sop_heightfield_distort",
+        "label": "HeightField Distort by Noise"
+      },
+      {
+        "name": "sop_heightfield_distortbylayer",
+        "label": "HeightField Distort by Layer"
+      },
+      {
+        "name": "sop_heightfield_pattern",
+        "label": "HeightField Pattern"
+      },
+      {
+        "name": "sop_heightfield_terrace",
+        "label": "HeightField Terrace"
+      },
+      {
+        "name": "sop_heightfield_project",
+        "label": "HeightField Project"
+      },
+      {
+        "name": "sop_heightfield_blur",
+        "label": "HeightField Blur"
+      },
+      {
+        "name": "sop_heightfield_erode::3.0",
+        "label": "HeightField Erode"
+      },
+      {
+        "name": "sop_heightfield_slump",
+        "label": "HeightField Slump"
+      },
+      {
+        "name": "sop_heightfield_clip",
+        "label": "HeightField Clip"
+      },
+      {
+        "name": "sop_heightfield_crop",
+        "label": "HeightField Crop"
+      },
+      {
+        "name": "sop_heightfield_xform",
+        "label": "HeightField Transform"
+      },
+      {
+        "name": "sop_heightfield_remap",
+        "label": "HeightField Remap"
+      },
+      {
+        "name": "sop_heightfield_resample",
+        "label": "HeightField Resample"
+      },
+      {
+        "name": "sop_heightfield_visualize",
+        "label": "HeightField Visualize"
+      }
+    ]
+  },
+  {
+    "name": "test_geometry",
+    "label": "Test Geometry",
+    "tools": [
+      {
+        "name": "lop_testgeometry_crag",
+        "label": "Test Geometry: Crag"
+      },
+      {
+        "name": "lop_testgeometry_pighead",
+        "label": "Test Geometry: Pig Head"
+      },
+      {
+        "name": "lop_testgeometry_rubbertoy",
+        "label": "Test Geometry: Rubber Toy"
+      },
+      {
+        "name": "lop_testgeometry_shaderball",
+        "label": "Test Geometry: Shader Ball"
+      },
+      {
+        "name": "lop_testgeometry_squab",
+        "label": "Test Geometry: Squab"
+      },
+      {
+        "name": "lop_testgeometry_templatebody",
+        "label": "Test Geometry: Template Body"
+      },
+      {
+        "name": "lop_testgeometry_templatehead",
+        "label": "Test Geometry: Template Head"
+      },
+      {
+        "name": "lop_testgeometry_tommy",
+        "label": "Test Geometry: Tommy"
+      }
+    ]
+  },
+  {
+    "name": "texture",
+    "label": "Texture",
+    "tools": [
+      {
+        "name": "sop_uvproject",
+        "label": "UV Project"
+      },
+      {
+        "name": "sop_uvedit",
+        "label": "UV Edit"
+      },
+      {
+        "name": "sop_uvbrush",
+        "label": "UV Brush"
+      },
+      {
+        "name": "sop_uvfuse",
+        "label": "UV Fuse"
+      },
+      {
+        "name": "sop_uvflatten::3.0",
+        "label": "UV Flatten"
+      },
+      {
+        "name": "sop_uvflattenfrompoints",
+        "label": "UV Flatten from Points"
+      },
+      {
+        "name": "sop_uvpelt::2.0",
+        "label": "UV Pelt"
+      },
+      {
+        "name": "sop_texture",
+        "label": "UV Texture"
+      },
+      {
+        "name": "sop_uvtransform::2.0",
+        "label": "UV Transform"
+      },
+      {
+        "name": "sop_uvunwrap",
+        "label": "UV Unwrap"
+      },
+      {
+        "name": "sop_uvquickshade",
+        "label": "UV Quick Shade"
+      },
+      {
+        "name": "sop_uvsmooth",
+        "label": "UV Smooth"
+      },
+      {
+        "name": "sop_uvlayout::3.0",
+        "label": "UV Layout"
+      },
+      {
+        "name": "generic_cleartexcache",
+        "label": "Clear Texture Cache"
+      }
+    ]
+  },
+  {
+    "name": "tophoudinitools",
+    "label": "TOPs Houdini Tools",
+    "tools": [
+      {
+        "name": "pdg_outputfile",
+        "label": "Preview Output"
+      }
+    ]
+  },
+  {
+    "name": "topstools",
+    "label": "TOPs Tools",
+    "tools": [
+      {
+        "name": "pdg_wedgegeo",
+        "label": "Wedge Setup"
+      },
+      {
+        "name": "pdg_rendersetup",
+        "label": "Render Setup"
+      }
+    ]
+  },
+  {
+    "name": "topsutils",
+    "label": "TOPs Utils",
+    "tools": [
+      {
+        "name": "pdg_installcheck",
+        "label": "Installation Check"
+      },
+      {
+        "name": "pdg_imageconvert",
+        "label": "Convert Images"
+      }
+    ]
+  },
+  {
+    "name": "ui",
+    "label": "UI",
+    "tools": [
+      {
+        "name": "view_isolate",
+        "label": "Isolate"
+      },
+      {
+        "name": "view_isolate_reset",
+        "label": "Reset"
+      },
+      {
+        "name": "view_isolate_append",
+        "label": "Append"
+      },
+      {
+        "name": "view_isolate_exclude",
+        "label": "Exclude"
+      }
+    ]
+  },
+  {
+    "name": "vellum",
+    "label": "Vellum",
+    "tools": [
+      {
+        "name": "dop_surfacecollider",
+        "label": "Surface Collider"
+      },
+      {
+        "name": "dynamics_vellumcloth",
+        "label": "Vellum Cloth"
+      },
+      {
+        "name": "dynamics_vellumhair",
+        "label": "Vellum Hair"
+      },
+      {
+        "name": "dynamics_vellumsoftbody",
+        "label": "Vellum Strut Softbody"
+      },
+      {
+        "name": "dynamics_vellumtetsoftbody",
+        "label": "Vellum Tetrahedral Softbody"
+      },
+      {
+        "name": "dynamics_vellumballoon",
+        "label": "Vellum Balloon"
+      },
+      {
+        "name": "dynamics_vellumgrains",
+        "label": "Vellum Grains"
+      }
+    ]
+  },
+  {
+    "name": "volume",
+    "label": "Volume",
+    "tools": [
+      {
+        "name": "geometry_fogvolume",
+        "label": "Volume"
+      },
+      {
+        "name": "geometry_vdbfrompolygons",
+        "label": "SDF Polys"
+      },
+      {
+        "name": "geometry_vdbfromparticles",
+        "label": "SDF Particles"
+      },
+      {
+        "name": "geometry_paintcolorvolume",
+        "label": "Volume Paint Color"
+      },
+      {
+        "name": "geometry_paintfogvolume",
+        "label": "Volume Paint Fog"
+      },
+      {
+        "name": "geometry_paintsdfvolume",
+        "label": "Volume Paint SDF"
+      },
+      {
+        "name": "geometry_volumerasterizepoints",
+        "label": "Fog Points"
+      },
+      {
+        "name": "geometry_volumerasterizeparticles",
+        "label": "Fog Particles"
+      },
+      {
+        "name": "geometry_volumerasterizecurve",
+        "label": "Fog Curve"
+      },
+      {
+        "name": "geometry_convertvdb",
+        "label": "Convert VDB"
+      }
+    ]
+  },
+  {
+    "name": "volume_creation_dynamics",
+    "label": "Fluid Containers",
+    "tools": [
+      {
+        "name": "dynamics_pyrobox",
+        "label": "Pyro Container"
+      },
+      {
+        "name": "dynamics_smokebox",
+        "label": "Smoke Container"
+      }
+    ]
+  },
+  {
+    "name": "volume_sourcing_dynamics",
+    "label": "Populate Containers",
+    "tools": [
+      {
+        "name": "dynamics_burnsource_surface",
+        "label": "Source from Surface"
+      },
+      {
+        "name": "dynamics_burnsource_points",
+        "label": "Source from Points"
+      },
+      {
+        "name": "dynamics_burnsource_volumes",
+        "label": "Source from Volumes"
+      },
+      {
+        "name": "dynamics_makesink",
+        "label": "Sink from Objects"
+      },
+      {
+        "name": "dynamics_makepump",
+        "label": "Pump from Objects"
+      },
+      {
+        "name": "dynamics_makecollision",
+        "label": "Collide with Objects"
+      },
+      {
+        "name": "dynamics_makeexpand",
+        "label": "Expand from Objects"
+      }
+    ]
+  },
+  {
+    "name": "volume_tools_dynamics",
+    "label": "Container Tools",
+    "tools": [
+      {
+        "name": "dynamics_initvel",
+        "label": "Container Velocities"
+      },
+      {
+        "name": "dynamics_gascurveforce",
+        "label": "Gas Curve Force"
+      },
+      {
+        "name": "dynamics_resizecontainer",
+        "label": "Resize Container"
+      },
+      {
+        "name": "dynamics_upres",
+        "label": "Up-Res Container"
+      },
+      {
+        "name": "dynamics_embedinfluid",
+        "label": "Embed in Fluid"
+      },
+      {
+        "name": "dynamics_seedvorticles",
+        "label": "Seed Vorticles"
+      },
+      {
+        "name": "dynamics_paintfuel",
+        "label": "Paint Fuel"
+      },
+      {
+        "name": "dynamics_painttemp",
+        "label": "Paint Temperature"
+      },
+      {
+        "name": "dynamics_fuelfromtexture",
+        "label": "Fuel from Texture"
+      },
+      {
+        "name": "dynamics_temperaturefromtexture",
+        "label": "Temperature from Texture"
+      },
+      {
+        "name": "dynamics_addfield",
+        "label": "Add Field to Fluid"
+      },
+      {
+        "name": "dynamics_targetsmoke",
+        "label": "Attract Fluid"
+      },
+      {
+        "name": "dynamics_parentfluid",
+        "label": "Parent Fluid"
+      },
+      {
+        "name": "dynamics_distribute_container",
+        "label": "Distribute Container"
+      }
+    ]
+  },
+  {
+    "name": "wire_dynamics",
+    "label": "Wires",
+    "tools": [
+      {
+        "name": "dop_wireobject",
+        "label": "Wire Object"
+      },
+      {
+        "name": "dop_wiresetinitialpose",
+        "label": "Set Initial Pose"
+      },
+      {
+        "name": "dynamics_gluewiretoanimation",
+        "label": "Glue Wire to Animation"
+      },
+      {
+        "name": "dop_wireattachmentconstraint",
+        "label": "Attach Wire to Surface"
+      },
+      {
+        "name": "dop_wirepinconstraint",
+        "label": "Wire Pin Constraint"
+      },
+      {
+        "name": "dop_wirespringconstraint",
+        "label": "Wire Spring Constraint"
+      },
+      {
+        "name": "dop_wireangularconstraint",
+        "label": "Wire Angular Constraint"
+      },
+      {
+        "name": "dop_wireangularspringconstraint",
+        "label": "Wire Angular Spring Constraint"
+      },
+      {
+        "name": "dop_wireglueconstraint",
+        "label": "Wire Glue Constraint"
+      },
+      {
+        "name": "dop_sbdattachconstraintrbd",
+        "label": "Attach Constraint to Rigid Body"
+      },
+      {
+        "name": "dop_sbdattachconstraintpoint",
+        "label": "Attach Constraint to Dynamics Point"
+      },
+      {
+        "name": "dop_sbdattachconstraintanimation",
+        "label": "Attach Constraint to Animation"
+      },
+      {
+        "name": "dop_sbddetachconstraint",
+        "label": "Detach Constraint"
+      },
+      {
+        "name": "dop_sbddeleteconstraint",
+        "label": "Delete Constraint"
+      },
+      {
+        "name": "dynamics_distribute_wire",
+        "label": "Distribute"
+      }
+    ]
+  }
+]

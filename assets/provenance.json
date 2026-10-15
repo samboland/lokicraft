@@ -1,0 +1,16 @@
+{
+  "source": "Houdini Apprentice 22.0.466 shelf metadata export",
+  "sha256": "2b3d2fecb9bad3a137bedae870a4a08723c1e47e07403eb6b1f874b514d65224",
+  "fields": [
+    "shelf name",
+    "shelf label",
+    "tool name",
+    "tool label"
+  ],
+  "excluded": [
+    "icons",
+    "scripts",
+    "help content"
+  ],
+  "shelves": 58
+}
