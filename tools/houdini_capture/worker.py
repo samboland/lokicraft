@@ -34,7 +34,7 @@ def rectangle(rect):
 
 
 def pane(selector):
-    tabs = hou.ui.curDesktop().paneTabs()
+    tabs = hou.ui.paneTabs()
     matches = [t for t in tabs if t.name() == selector]
     if not matches:
         matches = [t for t in tabs if str(t.type()).split('.')[-1] == selector]
@@ -89,6 +89,13 @@ def capture(step):
 
 def execute(step):
     action = step['action']
+    if action == 'context_menu':
+        from context_capture import probe
+        return probe(ROOT, step, pane(step['pane']) if 'pane' in step else None)
+    if action == 'floating_pane':
+        tab = hou.ui.curDesktop().createFloatingPaneTab(getattr(hou.paneTabType, step['type']))
+        tab.setName(step['name'])
+        return {'pane': tab.name(), 'type': str(tab.type())}
     if action == 'capture_shelves':
         shelves = sorted(hou.shelves.shelves().values(), key=lambda s: s.name())
         data = []

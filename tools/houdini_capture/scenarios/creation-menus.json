@@ -1,0 +1,263 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj",
+      "type": "geo",
+      "name": "capture_reference"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj/capture_reference",
+      "type": "box",
+      "name": "box1",
+      "display": true
+    },
+    {
+      "action": "select_node",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "pane",
+      "pane": "NetworkEditor",
+      "path": "/obj/capture_reference"
+    },
+    {
+      "action": "pane",
+      "pane": "Parm",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "capture",
+      "file": "reference.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-animation",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        83
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-attribute",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        113
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-character",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        143
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-deform",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        173
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-dynamics",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        203
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-environments",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        233
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-file-io",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        263
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-geometry",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        293
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-group",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        323
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-machine-learning",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        353
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-managers",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        383
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-scene-graph",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        413
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-texturing",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        443
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-utility",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        473
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-volume",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        503
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "creation-all",
+      "pane": "NetworkEditor",
+      "point": [
+        300,
+        230
+      ],
+      "hover": [
+        100,
+        545
+      ],
+      "settle_ms": 1500
+    }
+  ]
+}

@@ -1,0 +1,767 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj",
+      "type": "geo",
+      "name": "capture_reference"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj/capture_reference",
+      "type": "box",
+      "name": "box1",
+      "display": true
+    },
+    {
+      "action": "select_node",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "pane",
+      "pane": "NetworkEditor",
+      "path": "/obj/capture_reference"
+    },
+    {
+      "action": "pane",
+      "pane": "Parm",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "capture",
+      "file": "reference.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-tab",
+      "point": [
+        40,
+        52
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-tool",
+      "point": [
+        73,
+        90
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "shelf-empty",
+      "point": [
+        1150,
+        95
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-tab",
+      "point": [
+        75,
+        148
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "timeline-ruler",
+      "point": [
+        800,
+        1315
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "timeline-keys",
+      "point": [
+        800,
+        1350
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "playback-control",
+      "point": [
+        25,
+        1320
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "frame-field",
+      "point": [
+        260,
+        1320
+      ],
+      "settle_ms": 1000
+    },
+    {
+      "action": "context_menu",
+      "name": "network-blank",
+      "point": [
+        300,
+        230
+      ],
+      "settle_ms": 1000,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "network-node",
+      "point": [
+        407,
+        317
+      ],
+      "settle_ms": 1000,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "network-path",
+      "point": [
+        130,
+        24
+      ],
+      "settle_ms": 1000,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "network-toolbar",
+      "point": [
+        130,
+        65
+      ],
+      "settle_ms": 1000,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-75",
+      "point": [
+        140,
+        75
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-125",
+      "point": [
+        140,
+        125
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-230",
+      "point": [
+        140,
+        230
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-265",
+      "point": [
+        140,
+        265
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-300",
+      "point": [
+        140,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-140-335",
+      "point": [
+        140,
+        335
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-75",
+      "point": [
+        290,
+        75
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-125",
+      "point": [
+        290,
+        125
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-230",
+      "point": [
+        290,
+        230
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-265",
+      "point": [
+        290,
+        265
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-300",
+      "point": [
+        290,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-290-335",
+      "point": [
+        290,
+        335
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-75",
+      "point": [
+        470,
+        75
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-125",
+      "point": [
+        470,
+        125
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-230",
+      "point": [
+        470,
+        230
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-265",
+      "point": [
+        470,
+        265
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-300",
+      "point": [
+        470,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-470-335",
+      "point": [
+        470,
+        335
+      ],
+      "settle_ms": 1000,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "viewport-blank",
+      "point": [
+        500,
+        400
+      ],
+      "settle_ms": 1000,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "viewport-object",
+      "point": [
+        850,
+        550
+      ],
+      "settle_ms": 1000,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "viewport-toolbar",
+      "point": [
+        20,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "viewport-view-label",
+      "point": [
+        1500,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "SceneViewer"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_ChannelEditor",
+      "type": "ChannelEditor",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelEditor-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelEditor-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelEditor-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelEditor"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_ChannelViewer",
+      "type": "ChannelViewer",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelViewer-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelViewer-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "ChannelViewer-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_ChannelViewer"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_CompositorViewer",
+      "type": "CompositorViewer",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "CompositorViewer-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_CompositorViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "CompositorViewer-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_CompositorViewer"
+    },
+    {
+      "action": "context_menu",
+      "name": "CompositorViewer-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_CompositorViewer"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_DetailsView",
+      "type": "DetailsView",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "DetailsView-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_DetailsView"
+    },
+    {
+      "action": "context_menu",
+      "name": "DetailsView-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_DetailsView"
+    },
+    {
+      "action": "context_menu",
+      "name": "DetailsView-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_DetailsView"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_TreeView",
+      "type": "TreeView",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "TreeView-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TreeView"
+    },
+    {
+      "action": "context_menu",
+      "name": "TreeView-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TreeView"
+    },
+    {
+      "action": "context_menu",
+      "name": "TreeView-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TreeView"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_MaterialPalette",
+      "type": "MaterialPalette",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "MaterialPalette-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_MaterialPalette"
+    },
+    {
+      "action": "context_menu",
+      "name": "MaterialPalette-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_MaterialPalette"
+    },
+    {
+      "action": "context_menu",
+      "name": "MaterialPalette-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_MaterialPalette"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_PerformanceMonitor",
+      "type": "PerformanceMonitor",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "PerformanceMonitor-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PerformanceMonitor"
+    },
+    {
+      "action": "context_menu",
+      "name": "PerformanceMonitor-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PerformanceMonitor"
+    },
+    {
+      "action": "context_menu",
+      "name": "PerformanceMonitor-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PerformanceMonitor"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_Textport",
+      "type": "Textport",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "Textport-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_Textport"
+    },
+    {
+      "action": "context_menu",
+      "name": "Textport-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_Textport"
+    },
+    {
+      "action": "context_menu",
+      "name": "Textport-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_Textport"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_PythonShell",
+      "type": "PythonShell",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "PythonShell-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PythonShell"
+    },
+    {
+      "action": "context_menu",
+      "name": "PythonShell-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PythonShell"
+    },
+    {
+      "action": "context_menu",
+      "name": "PythonShell-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_PythonShell"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_BundleList",
+      "type": "BundleList",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "BundleList-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_BundleList"
+    },
+    {
+      "action": "context_menu",
+      "name": "BundleList-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_BundleList"
+    },
+    {
+      "action": "context_menu",
+      "name": "BundleList-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_BundleList"
+    },
+    {
+      "action": "floating_pane",
+      "name": "probe_TakeList",
+      "type": "TakeList",
+      "settle_ms": 3000
+    },
+    {
+      "action": "context_menu",
+      "name": "TakeList-body",
+      "point": [
+        400,
+        300
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TakeList"
+    },
+    {
+      "action": "context_menu",
+      "name": "TakeList-header",
+      "point": [
+        140,
+        90
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TakeList"
+    },
+    {
+      "action": "context_menu",
+      "name": "TakeList-row",
+      "point": [
+        140,
+        160
+      ],
+      "settle_ms": 1000,
+      "pane": "probe_TakeList"
+    }
+  ]
+}

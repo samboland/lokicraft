@@ -136,3 +136,30 @@ Open `index.html` in the run directory to filter shelves and tool labels.
 `shelves.json` records shelf labels, tool names, labels, icons, and page membership.
 `coverage.json` records counts after checking image hashes and exact tool order.
 These checks establish captured page coverage, not tool behavior or pixel fidelity.
+
+## Context menus
+
+Run `scenarios/contexts.json` at 2560x1440 with a 300-second timeout.
+Additional scenarios cover `context-submenus.json` and `creation-menus.json`.
+`context_menu` targets a main-window point or a point relative to a named pane.
+It sends Qt events inside the owned Houdini process, without desktop input or
+cursor movement. Optional `hover: [x, y]` opens an observed menu row; use
+`settle_ms: 1500` for these steps. No menu command is selected.
+`floating_pane` creates a named disposable pane for additional editor contexts.
+
+Popup widgets are captured separately because they are absent from main-window
+captures. Each probe records its target, popup hashes, and capture status under
+`contexts/<name>/result.json`. Houdini custom menus do not expose QAction labels;
+the PNG is the source for their visible menu text. `no-popup` means the probe did
+not produce a new visible popup, not proof that the surface has no context menu.
+
+Package one or more completed or partial runs with:
+
+```powershell
+python tools/houdini_capture/context_gallery.py --output .captures/menu-gallery .captures/context-run .captures/submenu-run
+```
+
+The gallery verifies hashes and preserves failures and missing probe counts.
+Exact-image deduplication does not count semantic menu types. Coordinates and
+hover rows are specific to the observed Houdini 22.0.466 layout. Other versions,
+different pane sizes, selection states, and deeper submenus remain unverified.

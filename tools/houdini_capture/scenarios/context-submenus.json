@@ -1,0 +1,325 @@
+{
+  "steps": [
+    {
+      "action": "desktop",
+      "name": "Build"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj",
+      "type": "geo",
+      "name": "capture_reference"
+    },
+    {
+      "action": "create_node",
+      "parent": "/obj/capture_reference",
+      "type": "box",
+      "name": "box1",
+      "display": true
+    },
+    {
+      "action": "select_node",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "pane",
+      "pane": "NetworkEditor",
+      "path": "/obj/capture_reference"
+    },
+    {
+      "action": "pane",
+      "pane": "Parm",
+      "path": "/obj/capture_reference/box1"
+    },
+    {
+      "action": "capture",
+      "file": "reference.png"
+    },
+    {
+      "action": "context_menu",
+      "name": "node-flags",
+      "point": [
+        407,
+        317
+      ],
+      "hover": [
+        100,
+        16
+      ],
+      "settle_ms": 1500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "node-actions",
+      "point": [
+        407,
+        317
+      ],
+      "hover": [
+        100,
+        46
+      ],
+      "settle_ms": 1500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "node-parameters",
+      "point": [
+        407,
+        317
+      ],
+      "hover": [
+        100,
+        87
+      ],
+      "settle_ms": 1500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "node-save",
+      "point": [
+        407,
+        317
+      ],
+      "hover": [
+        100,
+        297
+      ],
+      "settle_ms": 1500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "node-recipes",
+      "point": [
+        407,
+        317
+      ],
+      "hover": [
+        100,
+        383
+      ],
+      "settle_ms": 1500,
+      "pane": "NetworkEditor"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-channels",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        46
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-keyframes",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        76
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-expression",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        106
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-motion-fx",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        136
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-reference",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        166
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-recipes",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        208
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-paste-other",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        367
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "parameter-more",
+      "point": [
+        470,
+        230
+      ],
+      "hover": [
+        100,
+        670
+      ],
+      "settle_ms": 1500,
+      "pane": "Parm"
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-viewers",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        382
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-inspectors",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        412
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-animation",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        442
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-solaris",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        472
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-rendering",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        502
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-tops",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        532
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "pane-misc",
+      "point": [
+        75,
+        148
+      ],
+      "hover": [
+        100,
+        562
+      ],
+      "settle_ms": 1500
+    },
+    {
+      "action": "context_menu",
+      "name": "timeline-motion-fx",
+      "point": [
+        800,
+        1350
+      ],
+      "hover": [
+        100,
+        868
+      ],
+      "settle_ms": 1500
+    }
+  ]
+}

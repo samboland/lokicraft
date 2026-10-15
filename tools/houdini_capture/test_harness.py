@@ -35,7 +35,9 @@ class HarnessTests(unittest.TestCase):
     def test_unknown_actions_and_unbounded_waits_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             scenario = Path(directory) / 'scenario.json'
-            for step in ({'action':'execute'}, {'action':'capture','settle_ms':999999}):
+            for step in ({'action':'execute'}, {'action':'capture','settle_ms':999999},
+                         {'action':'context_menu','settle_ms':100},
+                         {'action':'context_menu','hover':[100,30]}):
                 scenario.write_text(json.dumps({'steps':[step]}))
                 with self.assertRaises(ValueError):
                     read_scenario(scenario)
