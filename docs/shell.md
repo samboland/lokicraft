@@ -16,7 +16,9 @@ selected shelf, with `craft-atomic` handling replacement underneath.
 - Choose a shelf tool to create a node placeholder. Select or drag it in Network Editor.
 - Edit its name and transform fields in Parameters.
 - Press Tab or click Add node to search the imported tool catalog.
-- Right-drag the Scene View grid to orbit. Scroll to zoom. Home resets the view.
+- Middle-drag the Scene View to orbit. Shift-middle pans; Ctrl-middle zooms.
+- Scroll to zoom. Escape cancels a drag. Home resets the view.
+- Choose Turntable or Trackball. View contains six axis views. Orthographic toggles projection.
 - Play or scrub the timeline from frame 1 to 240.
 
 The seven desktop presets approximate captured panel arrangements. They do not
@@ -47,3 +49,5 @@ The Artcraft Apache-2.0 license and NOTICE are retained in `third-party/`.
 Source boundaries: `model` owns shell node records; `workspace` owns layout
 presets; `panels` owns panel contents; `Shell` owns UI state and settings.
 A future procedural graph must remain independent of dock state and egui memory.
+
+Blender source ports and remaining work are tracked in [blender-port/coverage.md](blender-port/coverage.md).

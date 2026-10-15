@@ -1,0 +1,71 @@
+{
+  "repository": "https://github.com/blender/blender",
+  "commit": "608ad2b3d6bbca0f5d4938048b21744b36d4ebf5",
+  "files": [
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate.cc",
+      "sha256": "e0a20a4bc8f1b2ba0e2a3354c37b374005f7e21d0726a3d3a8657fc76538166f",
+      "bytes": 43819
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate.hh",
+      "sha256": "1f75179b99a488492b93b96cf0936a0eb6f058a2370a9775825965d925b7867a",
+      "bytes": 17879
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_all.cc",
+      "sha256": "84797150e1cd98c9ed4f0c5465c3ec654b092f6c27347c88b6c6db59613fc29a",
+      "bytes": 18334
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_axis.cc",
+      "sha256": "0631c273fbfb0cc5d902953839ffffb918b248fa2165082146f8d87b5f23d659",
+      "bytes": 6152
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_orbit.cc",
+      "sha256": "40d63f96d23a2abefde3ed23bd0e2e92864716b4848dcff3912b255512b6cc7c",
+      "bytes": 4781
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_pan.cc",
+      "sha256": "97269f18dfd7ab4e710ef9e3bcde22752558e59a26009752b09aa57dcbdd8654",
+      "bytes": 2541
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_camera.cc",
+      "sha256": "72f604a19fb707fa1d8972a46e0ebe1ce909836c114e9d4cf3232eea0d6dfd13",
+      "bytes": 3729
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_rotate.cc",
+      "sha256": "e18a1665496e00a95f43ccf218395c90389d2a6f9fb29f4d9c860a94926932b5",
+      "bytes": 12473
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_move.cc",
+      "sha256": "247cdc9dca25738e55dbf84895325aca5b6426a4da5116d6c0e87fc3e4b440c5",
+      "bytes": 3905
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_zoom.cc",
+      "sha256": "98eaa63c219da9d83276d127000e9a8dba2d6ea32c17a42aec66148e861bdc7d",
+      "bytes": 19931
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_navigate_view_dolly.cc",
+      "sha256": "471c2931b4663b0e07075c6f759ce8c08e56fe70cd0d53ebb3770d823d2133ac",
+      "bytes": 10978
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_utils.cc",
+      "sha256": "0abc1eb64b1df2e60b9da8d84bcfab97b0b969c5d73b17b932c34704296707b6",
+      "bytes": 56687
+    },
+    {
+      "path": "source/blender/editors/space_view3d/view3d_view.cc",
+      "sha256": "9087ae93ac772eb83e5d6f5ffc761febdc2c629baf4aef02b69a117d01116c7a",
+      "bytes": 48525
+    }
+  ]
+}

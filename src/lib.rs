@@ -1,5 +1,6 @@
 pub mod model;
 mod panels;
+pub mod viewport;
 pub mod workspace;
 
 use craft_settings::{Location, Settings, SettingsStore};
@@ -49,9 +50,7 @@ pub struct Shell {
     pub graph_pan: egui::Vec2,
     pub graph_zoom: f32,
     pub frame_graph: bool,
-    pub yaw: f32,
-    pub pitch: f32,
-    pub zoom: f32,
+    pub navigation: viewport::Navigation,
     prefs: SettingsStore<Prefs>,
     playback_fraction: f32,
 }
@@ -101,9 +100,7 @@ impl Shell {
             graph_pan: vec2(0.0, 0.0),
             graph_zoom: 1.0,
             frame_graph: true,
-            yaw: 0.62,
-            pitch: 0.62,
-            zoom: 32.0,
+            navigation: viewport::Navigation::default(),
             prefs,
             playback_fraction: 0.0,
         }
@@ -268,7 +265,7 @@ impl Shell {
             ui.menu_button("Help", |ui| {
                 ui.label("LokiCraft 0.1 · UI shell");
                 ui.label("Drag tabs to dock or float panels.");
-                ui.label("Right-drag the grid to orbit. Scroll to zoom.");
+                ui.label("Middle-drag to orbit. Shift pans. Ctrl zooms.");
                 ui.label("Shelf tools create UI placeholders only.");
             });
             ui.separator();

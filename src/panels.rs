@@ -50,74 +50,224 @@ impl Shell {
         ui.separator();
     }
     fn scene(&mut self, ui: &mut Ui) {
+        use crate::viewport::{Axis, Mode, Navigation, Orbit, Projection};
+        use glam::{Vec2, Vec3};
         Self::path_bar(ui, "/obj");
-        ui.horizontal(|ui| {
-            ui.label("View");
-            ui.separator();
-            if ui.small_button("Home").clicked() {
-                self.yaw = 0.62;
-                self.pitch = 0.62;
-                self.zoom = 32.0;
-            }
-            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                ui.weak("Perspective");
+        egui::ScrollArea::horizontal()
+            .id_salt("view-toolbar")
+            .show(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.menu_button("View", |ui| {
+                        for (label, axis) in [
+                            ("Front", Axis::Front),
+                            ("Back", Axis::Back),
+                            ("Right", Axis::Right),
+                            ("Left", Axis::Left),
+                            ("Top", Axis::Top),
+                            ("Bottom", Axis::Bottom),
+                        ] {
+                            if ui.button(label).clicked() {
+                                self.navigation.cancel();
+                                self.navigation.view.set_axis(axis);
+                                ui.close();
+                            }
+                        }
+                        if ui.button("Reset view").clicked() {
+                            self.navigation = Navigation::default();
+                            ui.close();
+                        }
+                    });
+                    if ui.small_button("Home").clicked() {
+                        self.navigation = Navigation::default();
+                    }
+                    let projection = self.navigation.view.projection;
+                    if ui
+                        .selectable_label(projection == Projection::Orthographic, "Orthographic")
+                        .clicked()
+                    {
+                        self.navigation.cancel();
+                        self.navigation.view.projection = if projection == Projection::Orthographic
+                        {
+                            Projection::Perspective
+                        } else {
+                            Projection::Orthographic
+                        };
+                    }
+                    egui::ComboBox::from_id_salt("orbit-mode")
+                        .selected_text(match self.navigation.orbit {
+                            Orbit::Turntable => "Turntable",
+                            Orbit::Trackball => "Trackball",
+                        })
+                        .width(95.0)
+                        .show_ui(ui, |ui| {
+                            ui.selectable_value(
+                                &mut self.navigation.orbit,
+                                Orbit::Turntable,
+                                "Turntable",
+                            );
+                            ui.selectable_value(
+                                &mut self.navigation.orbit,
+                                Orbit::Trackball,
+                                "Trackball",
+                            );
+                        });
+                    ui.checkbox(&mut self.navigation.zoom_to_cursor, "Zoom to cursor");
+                });
             });
-        });
         let rect = ui.available_rect_before_wrap();
         let response = ui.allocate_rect(rect, Sense::click_and_drag());
+        let size = Vec2::new(rect.width(), rect.height());
+        // Blender event coordinates start at bottom-left; egui starts at top-left.
+        let position = |p: egui::Pos2| Vec2::new(p.x - rect.left(), rect.bottom() - p.y);
+        let mode = ui.input(|i| {
+            if i.modifiers.shift {
+                Mode::Pan
+            } else if i.modifiers.ctrl {
+                Mode::Zoom
+            } else {
+                Mode::Rotate
+            }
+        });
+        if response.drag_started_by(egui::PointerButton::Middle) {
+            if let Some(p) = ui.input(|i| i.pointer.press_origin()) {
+                self.navigation.begin(mode, position(p));
+            }
+        }
+        if self.navigation.active() {
+            if ui.input(|i| i.key_pressed(egui::Key::Escape) || !i.focused) {
+                self.navigation.cancel();
+            } else {
+                if let Some(p) = ui.input(|i| i.pointer.interact_pos()) {
+                    self.navigation.update(mode, position(p), size);
+                }
+                if !ui.input(|i| i.pointer.button_down(egui::PointerButton::Middle)) {
+                    self.navigation.confirm();
+                }
+            }
+        }
+        if response.hovered() && !self.navigation.active() {
+            let pointer = ui.input(|i| i.pointer.hover_pos()).map(position);
+            let steps = ui.input(|i| {
+                i.events
+                    .iter()
+                    .filter_map(|e| match e {
+                        egui::Event::MouseWheel { unit, delta, .. } => Some(match unit {
+                            egui::MouseWheelUnit::Line => delta.y,
+                            egui::MouseWheelUnit::Point => delta.y / 50.0,
+                            egui::MouseWheelUnit::Page => delta.y * 3.0,
+                        }),
+                        _ => None,
+                    })
+                    .sum::<f32>()
+            });
+            if steps != 0.0 {
+                self.navigation.view.zoom_steps(
+                    steps,
+                    if self.navigation.zoom_to_cursor {
+                        pointer
+                    } else {
+                        None
+                    },
+                    size,
+                );
+            }
+            if !ui.ctx().egui_wants_keyboard_input() {
+                for (key, axis) in [
+                    (egui::Key::Num1, Axis::Front),
+                    (egui::Key::Num3, Axis::Right),
+                    (egui::Key::Num7, Axis::Top),
+                ] {
+                    if ui.input(|i| i.key_pressed(key)) {
+                        self.navigation.view.set_axis(axis);
+                    }
+                }
+                if ui.input(|i| i.key_pressed(egui::Key::Num5)) {
+                    self.navigation.view.projection =
+                        if self.navigation.view.projection == Projection::Perspective {
+                            Projection::Orthographic
+                        } else {
+                            Projection::Perspective
+                        };
+                }
+                if ui.input(|i| i.key_pressed(egui::Key::Home)) {
+                    self.navigation = Navigation::default();
+                }
+            }
+        }
         let p = ui.painter_at(rect);
         p.rect_filled(rect, 0, Color32::from_gray(49));
-        if response.dragged_by(egui::PointerButton::Secondary) {
-            let delta = ui.input(|i| i.pointer.delta());
-            self.yaw += delta.x * 0.007;
-            self.pitch = (self.pitch + delta.y * 0.006).clamp(0.15, 1.35);
-        }
-        if response.hovered() {
-            self.zoom = (self.zoom * (ui.input(|i| i.smooth_scroll_delta.y) * 0.002).exp())
-                .clamp(12.0, 100.0);
-        }
-        let project = |x: f32, z: f32| {
-            let a = x * self.yaw.cos() - z * self.yaw.sin();
-            let b = x * self.yaw.sin() + z * self.yaw.cos();
-            let perspective = 1.0 / (1.0 + b * 0.026).max(0.3);
-            rect.center() + vec2(a * self.zoom, b * self.zoom * self.pitch.sin()) * perspective
+        let screen = |v: Vec2| pos2(rect.left() + v.x, rect.bottom() - v.y);
+        let line = |a: Vec3, b: Vec3, stroke: Stroke| {
+            if let Some([a, b]) = self.navigation.view.project_segment(a, b, size) {
+                p.line_segment([screen(a), screen(b)], stroke);
+            }
         };
-        for i in -20..=20 {
+        let (u, v, color_u, color_v) = match self.navigation.view.axis {
+            Some(Axis::Front | Axis::Back) => (
+                Vec3::X,
+                Vec3::Z,
+                Color32::from_rgb(135, 75, 72),
+                Color32::from_rgb(75, 135, 80),
+            ),
+            Some(Axis::Right | Axis::Left) => (
+                Vec3::Y,
+                Vec3::Z,
+                Color32::from_rgb(75, 95, 150),
+                Color32::from_rgb(75, 135, 80),
+            ),
+            _ => (
+                Vec3::X,
+                Vec3::Y,
+                Color32::from_rgb(135, 75, 72),
+                Color32::from_rgb(75, 95, 150),
+            ),
+        };
+        for i in -40..=40 {
             let stroke = Stroke::new(
                 1.0,
                 if i % 5 == 0 {
-                    Color32::from_gray(70)
+                    Color32::from_gray(69)
                 } else {
-                    Color32::from_gray(58)
+                    Color32::from_gray(57)
                 },
             );
-            p.line_segment([project(i as f32, -20.0), project(i as f32, 20.0)], stroke);
-            p.line_segment([project(-20.0, i as f32), project(20.0, i as f32)], stroke);
+            line(u * i as f32 - v * 40.0, u * i as f32 + v * 40.0, stroke);
+            line(v * i as f32 - u * 40.0, v * i as f32 + u * 40.0, stroke);
         }
-        p.line_segment(
-            [project(-20.0, 0.0), project(20.0, 0.0)],
-            Stroke::new(1.2, Color32::from_rgb(116, 69, 67)),
-        );
-        p.line_segment(
-            [project(0.0, -20.0), project(0.0, 20.0)],
-            Stroke::new(1.2, Color32::from_rgb(65, 78, 119)),
+        line(-u * 40.0, u * 40.0, Stroke::new(1.2, color_u));
+        line(-v * 40.0, v * 40.0, Stroke::new(1.2, color_v));
+        let title = format!(
+            "{} {}",
+            self.navigation
+                .view
+                .axis
+                .map(|a| format!("{a:?}"))
+                .unwrap_or_else(|| "User".into()),
+            if self.navigation.view.projection == Projection::Perspective {
+                "Perspective"
+            } else {
+                "Orthographic"
+            }
         );
         p.text(
             rect.left_top() + vec2(12.0, 12.0),
             Align2::LEFT_TOP,
-            "Perspective grid",
+            title,
             FontId::proportional(12.0),
             Color32::from_gray(180),
         );
-        let origin = rect.left_bottom() + vec2(32.0, -35.0);
-        for (delta, label, color) in [
-            (vec2(22.0, 11.0), "X", Color32::from_rgb(220, 100, 95)),
-            (vec2(0.0, -27.0), "Y", Color32::from_rgb(100, 200, 100)),
-            (vec2(-19.0, 13.0), "Z", Color32::from_rgb(100, 140, 225)),
+        let origin = rect.left_bottom() + vec2(36.0, -38.0);
+        // Houdini Y-up to Blender Z-up: (x,y,z) -> (x,-z,y).
+        for (axis, label, color) in [
+            (Vec3::X, "X", Color32::from_rgb(220, 100, 95)),
+            (Vec3::Z, "Y", Color32::from_rgb(100, 200, 100)),
+            (-Vec3::Y, "Z", Color32::from_rgb(100, 140, 225)),
         ] {
-            p.line_segment([origin, origin + delta], Stroke::new(2.0, color));
+            let v = self.navigation.view.rotation * axis;
+            let end = origin + vec2(v.x, -v.y) * 27.0;
+            p.line_segment([origin, end], Stroke::new(2.0, color));
             p.text(
-                origin + delta,
+                end,
                 Align2::CENTER_CENTER,
                 label,
                 FontId::proportional(11.0),

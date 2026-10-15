@@ -10,6 +10,7 @@ eframe = { version = "=0.36.2", default-features = false, features = ["default_f
 egui = "=0.36.2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+glam = { version = "0.30", features = ["serde"] }
 craft-ui = { git = "https://github.com/storytold/craft-libs", rev = "8f5a2831614e632f91ad367f7af2a6e5b61b9529", features = ["serde"] }
 craft-settings = { git = "https://github.com/storytold/craft-libs", rev = "8f5a2831614e632f91ad367f7af2a6e5b61b9529" }
 

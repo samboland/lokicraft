@@ -1,0 +1,12 @@
+Blender navigation source port
+Copyright 2008-2026 Blender Authors
+https://github.com/blender/blender
+Revision: 608ad2b3d6bbca0f5d4938048b21744b36d4ebf5
+
+Ported portions of source/blender/editors/space_view3d/view3d_navigate.cc,
+view3d_navigate_view_rotate.cc and view3d_navigate_view_zoom.cc are licensed
+GPL-2.0-or-later. LokiCraft distributes this adaptation under its existing GPL-3.0
+license. Changes: Rust types and math, egui input adapter, local camera projection,
+and removal of unavailable Blender host callbacks. Detailed coverage and differences
+are recorded in docs/blender-port/coverage.md. Source file hashes are in sources.json.
+The C++ trackball oracle retains the original function with minimal test helpers.

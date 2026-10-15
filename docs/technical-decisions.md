@@ -28,3 +28,12 @@ Sam reports no Artcraft 3D editor yet. Plan for substantial original 3D editor
 work while checking which shared application components can be reused.
 
 The source audit and tested reuse choices are in [artcraft-reuse.md](artcraft-reuse.md). Prefer the pinned craft-ui, craft-settings, and craft-atomic components before creating equivalents.
+
+## Blender source port
+
+Sam selected a Rust port of Blender UI logic and viewport handling as the implementation
+basis, beyond using it as a reference. Preserve the Houdini shell layout. Port source
+algorithms with pinned provenance and explicit coverage. Use Rust adapters for egui,
+wgpu and the future procedural model. Track remaining Blender behavior in
+[blender-port/coverage.md](blender-port/coverage.md); do not equate a navigation subset
+with a complete UI or viewport port.
