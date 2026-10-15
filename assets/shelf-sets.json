@@ -1,0 +1,45 @@
+[
+  {
+    "name": "shelf_set_1",
+    "label": "Create and Refine",
+    "shelves": [
+      "create",
+      "modify",
+      "model",
+      "polygon",
+      "deform",
+      "texture",
+      "rigging",
+      "characters",
+      "constraints",
+      "groomtools",
+      "guidemodify",
+      "terrainfx",
+      "simplefx",
+      "volume"
+    ]
+  },
+  {
+    "name": "shelf_set_2",
+    "label": "Lights, Camera, Action",
+    "shelves": [
+      "lights_and_cameras",
+      "collisions",
+      "particles",
+      "grains",
+      "vellum",
+      "mpm",
+      "rbd_dynamics",
+      "liquid_dynamics",
+      "melting_dynamics",
+      "ocean",
+      "sop_pyro_dynamics",
+      "sop_particle_dynamics",
+      "sparse_pyro_dynamics",
+      "solid_dynamics",
+      "wire_dynamics",
+      "crowds",
+      "drive_simulation"
+    ]
+  }
+]

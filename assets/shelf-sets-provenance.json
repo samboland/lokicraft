@@ -1,0 +1,21 @@
+{
+  "source": "Houdini 22.0.466 Build desktop",
+  "split": [
+    0.5,
+    0.5
+  ],
+  "definitions": [
+    {
+      "file": "ShelfDefinitions.shelf",
+      "sha256": "6dcf01afcd4677ed15f70659c0282e81f0e17e853a22946de01bc25b67e6ecbf"
+    },
+    {
+      "file": "ShelfDefinitions.master_shelf",
+      "sha256": "878d12c107775bae0c89a4d181a9ab2a4017d61fd2c9d1c0d44e62242d31e63a"
+    }
+  ],
+  "excluded": [
+    "scripts",
+    "icons"
+  ]
+}

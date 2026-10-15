@@ -1,5 +1,6 @@
 pub mod model;
 mod panels;
+pub mod shelves;
 pub mod viewport;
 pub mod workspace;
 
@@ -21,6 +22,8 @@ pub struct Prefs {
     pub desktop: String,
     pub layouts: BTreeMap<String, String>,
     pub shelf: String,
+    pub right_shelf: String,
+    pub shelf_split: f32,
 }
 impl Default for Prefs {
     fn default() -> Self {
@@ -28,6 +31,8 @@ impl Default for Prefs {
             desktop: "Build".into(),
             layouts: BTreeMap::new(),
             shelf: "Create".into(),
+            right_shelf: "Lights and Cameras".into(),
+            shelf_split: 0.5,
         }
     }
 }
@@ -41,7 +46,8 @@ pub struct Shell {
     pub desktop: String,
     pub session: Session,
     pub shelves: Vec<Shelf>,
-    pub shelf: usize,
+    pub shelf_sets: [shelves::ShelfSetState; 2],
+    pub shelf_split: f32,
     pub frame: i32,
     pub playing: bool,
     pub status: String,
@@ -82,16 +88,20 @@ impl Shell {
             .unwrap_or_else(|| workspace::preset(&desktop));
         let shelves: Vec<Shelf> = serde_json::from_str(include_str!("../assets/shelves.json"))
             .expect("checked embedded catalog");
-        let shelf = shelves
-            .iter()
-            .position(|s| s.label == prefs.get().shelf)
-            .unwrap_or(0);
+        let shelf_sets =
+            shelves::initial_sets(&shelves, [&prefs.get().shelf, &prefs.get().right_shelf]);
+        let shelf_split = if prefs.get().shelf_split.is_finite() {
+            prefs.get().shelf_split.clamp(0.1, 0.9)
+        } else {
+            0.5
+        };
         Self {
             layout,
             desktop,
             session: Session::default(),
             shelves,
-            shelf,
+            shelf_sets,
+            shelf_split,
             frame: 1,
             playing: false,
             status: "Ready".into(),
@@ -108,11 +118,15 @@ impl Shell {
     fn remember(&mut self) {
         if let Ok(json) = serde_json::to_string(&self.layout) {
             let desktop = self.desktop.clone();
-            let shelf = self.shelves[self.shelf].label.clone();
+            let shelf = self.shelves[self.shelf_sets[0].selected].label.clone();
+            let right_shelf = self.shelves[self.shelf_sets[1].selected].label.clone();
+            let split = self.shelf_split;
             self.prefs.update(|p| {
                 p.desktop = desktop.clone();
                 p.layouts.insert(desktop, json);
                 p.shelf = shelf;
+                p.right_shelf = right_shelf;
+                p.shelf_split = split;
             });
         }
     }
@@ -292,58 +306,6 @@ impl Shell {
             });
         });
     }
-    fn shelf_ui(&mut self, ui: &mut Ui) {
-        egui::ScrollArea::horizontal()
-            .id_salt("shelf-tabs")
-            .auto_shrink([false, true])
-            .show(ui, |ui| {
-                ui.horizontal(|ui| {
-                    // Keep familiar modeling shelves first, preserving each imported tool's order.
-                    let first = [
-                        "Create",
-                        "Modify",
-                        "Model",
-                        "Polygon",
-                        "Deform",
-                        "Texture",
-                        "Rigging",
-                        "Characters",
-                    ];
-                    let mut order: Vec<usize> = (0..self.shelves.len()).collect();
-                    order.sort_by_key(|i| {
-                        first
-                            .iter()
-                            .position(|s| *s == self.shelves[*i].label)
-                            .unwrap_or(100)
-                    });
-                    for i in order {
-                        if ui
-                            .selectable_label(self.shelf == i, &self.shelves[i].label)
-                            .clicked()
-                        {
-                            self.shelf = i;
-                        }
-                    }
-                });
-            });
-        ui.add_space(2.0);
-        let tools = self.shelves[self.shelf].tools.clone();
-        egui::ScrollArea::horizontal()
-            .id_salt("shelf-tools")
-            .auto_shrink([false, true])
-            .show(ui, |ui| {
-                ui.horizontal(|ui| {
-                    for tool in tools {
-                        if tool_button(ui, &tool).clicked() {
-                            self.add_tool(tool);
-                        }
-                    }
-                    if self.shelves[self.shelf].tools.is_empty() {
-                        ui.weak("No tools in this shelf");
-                    }
-                });
-            });
-    }
     fn timeline(&mut self, ui: &mut Ui) {
         ui.separator();
         ui.horizontal(|ui| {
@@ -433,9 +395,9 @@ pub fn load_layout(json: Option<&String>) -> Option<Layout<Panel>> {
     layout.validate().ok()?;
     Some(layout)
 }
-fn tool_button(ui: &mut Ui, tool: &Tool) -> egui::Response {
-    use egui::{Align2, FontId, Sense, Stroke, StrokeKind};
-    let (rect, response) = ui.allocate_exact_size(vec2(66.0, 48.0), Sense::click());
+fn tool_button(ui: &mut Ui, tool: &Tool, width: f32) -> egui::Response {
+    use egui::{FontId, Sense, Stroke, StrokeKind};
+    let (rect, response) = ui.allocate_exact_size(vec2(width, 58.0), Sense::click());
     response.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, true, &tool.label));
     let p = ui.painter_at(rect);
     if response.hovered() {
@@ -498,11 +460,15 @@ fn tool_button(ui: &mut Ui, tool: &Tool) -> egui::Response {
             Stroke::new(1.5, ACCENT),
         );
     }
-    p.text(
-        rect.center_bottom() - vec2(0.0, 2.0),
-        Align2::CENTER_BOTTOM,
-        &tool.label,
+    let text = p.layout(
+        tool.label.clone(),
         FontId::proportional(11.0),
+        ui.visuals().text_color(),
+        (width - 12.0).max(1.0),
+    );
+    p.galley(
+        pos2(rect.center().x - text.size().x * 0.5, rect.top() + 29.0),
+        text,
         ui.visuals().text_color(),
     );
     response.on_hover_text(format!("{} · Add UI placeholder", tool.label))

@@ -51,3 +51,26 @@ presets; `panels` owns panel contents; `Shell` owns UI state and settings.
 A future procedural graph must remain independent of dock state and egui memory.
 
 Blender source ports and remaining work are tracked in [blender-port/coverage.md](blender-port/coverage.md).
+
+## Shelf sets
+
+Build starts with Houdini's two default shelf sets: Create and Refine on the left,
+Lights, Camera, Action on the right. Both start at equal width. Drag their center
+divider to resize them. Each side keeps its own selected shelf. The divider and
+selections survive restart; older single-shelf settings migrate to the left side
+when that shelf belongs to the default set.
+
+Tabs and tools use arrow paging without scrollbars. Only complete items appear.
+Tool widths follow their full labels; unusually long labels wrap within the
+minimum shelf width. Shelf tools still create placeholders.
+
+`assets/shelf-sets.json` preserves the installed Houdini 22.0.466 Build membership
+and order (14 left shelves, 17 right shelves). Existing captured tool order is
+retained. Regenerate membership with:
+
+```powershell
+python tools/import_shelf_sets.py 'C:\Program Files\Side Effects Software\Houdini 22.0.466\houdini'
+cargo run --locked --example shelf_snapshot -- .captures/shelves
+```
+
+Definition hashes are recorded in `assets/shelf-sets-provenance.json`.
